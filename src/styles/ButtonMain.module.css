@@ -1,0 +1,17 @@
+.button {
+  color: var(--yellow-main);
+  padding: 16px 28px;
+  border-radius: 50px;
+  font-family: Helvetica, Arial, sans-serif;
+  display: flex;
+  gap: 16px;
+}
+
+.buttonText {
+  font-size: 14px;
+}
+
+.buttonIcon {
+  width: 24px;
+  height: 24px;
+}
