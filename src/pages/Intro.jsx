@@ -5,14 +5,18 @@ import SubContent from "../components/SubContent"
 import styles from "../styles/Intro.module.css"
 import shareIcon from "../assets/icons/Share.svg"
 
-function Intro() {
+function Intro({ setCurrentPage }) {
+  const onClick = () => {
+    console.log("Clicked! Going to 'start'");
+    setCurrentPage("start");
+  }
   const mainContent = (
     <>
       <div className={styles.mainText}>
         <h1>Play Genius Quiz</h1>
         <p>Explore your relationship with true play to reclaim your gifts. Opt-in for tips to reconnect with your greatest superpower.</p>
       </div>
-      <ButtonMain buttonText={'Let the games begin!'}/>
+      <ButtonMain buttonText={'Let the games begin!'} onClick={onClick}/>
     </>
   )
 

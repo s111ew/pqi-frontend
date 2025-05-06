@@ -1,19 +1,35 @@
-import styles from "../styles/Start.module.css"
+import { useState } from "react";
+import styles from "../styles/Start.module.css";
 import SubContent from "../components/SubContent";
 import ContentContainer from "../components/ContentContainer";
 import ButtonMain from "../components/ButtonMain";
-import TextInput from "../components/TextInput"
-import butterflyIcon from "../assets/backgroundIcons/Butterfly nudge.svg"
-import lightbulbIcon from "../assets/backgroundIcons/Tiplarge.svg"
+import TextInput from "../components/TextInput";
+import butterflyIcon from "../assets/backgroundIcons/Butterfly nudge.svg";
+import lightbulbIcon from "../assets/backgroundIcons/Tiplarge.svg";
 
-function Start() {
+function Start({ setCurrentPage, setUser }) {
+  const [name, setName] = useState("");
+
+  const isValid = /[a-z0-9]/i.test(name);
+
+  const handleClick = () => {
+    if (isValid) {
+      setCurrentPage("question");
+      setUser({userName: {name}});
+    }
+  };
+
   const mainContent = (
     <>
       <div className={styles.mainText}>
-        <p>Ready, steady, go!<br></br>Who's taking the quiz today?</p>
-        <TextInput placeholderText={'Name'}/>
+        <p>Ready, steady, go!<br />Who's taking the quiz today?</p>
+        <TextInput placeholderText="Name" value={name} onChange={(e) => setName(e.target.value)} />
       </div>
-      <ButtonMain buttonText={"First question"}/>
+      <ButtonMain
+        buttonText={"First question"}
+        onClick={handleClick}
+        className={!isValid ? 'disabled' : ""}
+      />
     </>
   );
 
@@ -34,15 +50,15 @@ function Start() {
     </>
   );
 
-  return(
+  return (
     <main className={styles.start}>
-      <ContentContainer content={mainContent}/>
+      <ContentContainer content={mainContent} />
       <div className={styles.subContainer}>
-        <SubContent content={subContent1} backgroundImg={lightbulbIcon}/>
-        <SubContent content={subContent2} backgroundImg={butterflyIcon}/>
+        <SubContent content={subContent1} backgroundImg={lightbulbIcon} />
+        <SubContent content={subContent2} backgroundImg={butterflyIcon} />
       </div>
     </main>
-  )
+  );
 }
 
-export default Start
+export default Start;
