@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 16px;
+  margin-bottom: 31px;
+}
+
+.radio {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border: 3px dashed var(--orange-2);
+  border-radius: 50%;
+  appearance: none;
+  --webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+  background-color: white;
+}
+
+.radio:hover {
+  border: 3px solid var(--orange-2);
+  background-color: var(--orange-2);
+}
+
+.radio:active::after {
+  position: absolute;
+  content: url(../assets/Scribble.svg);
+  top: -5px;
+}
+
+.radio:checked {
+  border: 3px solid var(--orange-2);
+  background-color: var(--orange-2);
+}
+
+.radio:checked::after {
+  position: absolute;
+  content: url(../assets/Scribble.svg);
+  top: -5px;
+}
+
+.radioContainer,
+.labelContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.radioContainer {
+  padding: 0px 5px;
+}

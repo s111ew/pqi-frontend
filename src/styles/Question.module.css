@@ -1,0 +1,51 @@
+.question {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  padding: 150px 0px 94px 0px;
+  width: 874px;
+  font-family: Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+
+.questionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  margin-top: -80px;
+}
+
+.disclaimer {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.questionTextContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.questionTextContainer > p {
+  font-size: 14px;
+  line-height: 16px !important;
+  color: var(--disabled-text);
+}
+
+.questionText {
+  font-family: "Merriweather";
+  color: var(--teal-1);
+  font-size: 32px;
+  line-height: 45px;
+  font-weight: 500;
+}
+
+.progress {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  height: 50px;
+}

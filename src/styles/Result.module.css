@@ -1,0 +1,173 @@
+.result {
+  font-family: Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  padding: 84px 0px 94px 0px;
+  width: 874px;
+}
+
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+}
+
+.resultContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.resultIntro {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.resultPre {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--disabled-text);
+}
+
+.numContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.resultNum {
+  font-family: "Merriweather";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 56px;
+}
+
+.percentage {
+  font-family: "Merriweather";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.niceOne {
+  font-family: "Merriweather";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 34px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  width: 100%;
+}
+
+.subContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.large {
+  padding: 40px 156px;
+}
+
+.subContent {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+
+.subContent > h3 {
+  font-weight: 500;
+  color: var(--teal-1);
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.subContent > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  list-style: none;
+  padding: 0px;
+}
+
+.subContent > ul > li {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.bullet {
+  flex-shrink: 0;
+  margin-top: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--teal-2);
+}
+
+.emailContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  text-align: center;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.emailTitle {
+  color: var(--teal-1);
+  font-family: "Merriweather" !important;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 45px;
+}
+
+.disclaimer {
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--disabled-text);
+}
+
+.headshot {
+  width: 200px;
+  height: 178px;
+  align-self: center;
+}
+
+.bold {
+  text-align: center;
+  font-family: "Helvetica Neue";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.getInTouchContainer,
+.moreInfoContainer {
+  gap: 36px;
+}
+
+.singleButton {
+  justify-content: center;
+}

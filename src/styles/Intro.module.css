@@ -1,0 +1,79 @@
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  padding: 84px 0px;
+  width: 874px;
+}
+
+.buttonContainer {
+  height: 50px;
+}
+
+.mainText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+  width: 100%;
+}
+
+.mainText > h1 {
+  color: var(--teal-1);
+  font-size: 32px;
+  line-height: 45px;
+  font-family: "Merriweather";
+}
+
+.mainText > p {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.subContainer {
+  font-size: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  font-family: Helvetica, sans-serif;
+}
+
+.subContainerTitle {
+  text-align: center;
+  color: var(--teal-1);
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.list {
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bullet {
+  flex-shrink: 0;
+  margin-top: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--teal-2);
+}
+
+.listItem {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  font-size: 14px;
+  font-family: Helvetica, Arial, sans-serif;
+  list-style: none;
+}
+
+/* .listItem::marker {
+  color: var(--teal-2);
+  font-size: 2rem;
+} */

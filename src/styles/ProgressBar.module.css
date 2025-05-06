@@ -1,0 +1,24 @@
+.progressContainer {
+  width: 100%;
+  height: 100%;
+  background-color: var(--white-1);
+  padding: 0px 16px;
+  border: 3px solid var(--white-4);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--box-shadow-button);
+}
+
+.progress {
+  height: 20px;
+  width: 100%;
+  background-color: none;
+  border: 3px solid var(--orange-1);
+  border-radius: 50px;
+}
+
+.bar {
+  background-color: var(--orange-1);
+  height: 100%;
+}

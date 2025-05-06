@@ -1,4 +1,21 @@
-.button {
+.inputContainer {
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  padding: 21px 25px;
+  border: 2px dashed var(--orange-2);
+  border-radius: 50px;
+  text-align: flex-start;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.inputButton {
+  position: absolute;
+  right: 10px;
+  top: 8px;
   color: var(--black-1);
   padding: 16px 28px;
   border-radius: 50px;
@@ -8,7 +25,7 @@
   background-color: var(--orange-1);
 }
 
-.button:hover {
+.inputButton:hover {
   cursor: pointer;
   background-color: var(--white-1) !important;
   box-shadow: 0px 0px 0px 3px var(--orange-2) inset;
@@ -16,7 +33,7 @@
   -moz-box-shadow: 0px 0px 0px 3px var(--orange-2) inset;
 }
 
-.button:active {
+.inputButton:active {
   background-color: var(--orange-2) !important;
 }
 

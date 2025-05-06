@@ -1,6 +1,94 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
 body {
-  --stroke-colour: #fff4e1;
-  --text-black: #222222;
-  --yellow-main: #fcc55b;
-  --orange-main: rgba(237, 151, 62, 1);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  --white-1: rgb(255, 255, 255);
+  --white-2: rgb(254, 250, 243);
+  --white-3: rgba(254, 250, 243, 0.8);
+  --white-4: rgb(255, 244, 225);
+  --orange-1: rgb(252, 197, 91);
+  --orange-2: rgba(237, 151, 62, 1);
+  --teal-1: rgb(2, 106, 103);
+  --teal-2: rgb(144, 181, 191);
+  --teal-3: rgba(2, 106, 103, 0.1);
+  --social: rgb(255, 168, 118);
+  --emotional: rgb(155, 176, 239);
+  --physical: rgb(132, 186, 121);
+  --playful: rgb(234, 215, 42);
+  --cognitive: rgb(180, 133, 214);
+  --systemic: rgb(251, 153, 196);
+  --black-1: rgb(34, 34, 34);
+  --black-2: rgba(34, 34, 34, 0.7);
+  --red: rgb(204, 56, 56);
+  --disabled: rgb(202, 196, 189);
+  --disabled-text: rgb(133, 132, 132);
+  --box-shadow-main: 0px 45px 13px 0px rgba(237, 177, 63, 0),
+    0px 29px 11px 0px rgba(237, 177, 63, 0.01),
+    0px 16px 10px 0px rgba(237, 177, 63, 0.03),
+    0px 7px 7px 0px rgba(237, 177, 63, 0.05),
+    0px 2px 4px 0px rgba(237, 177, 63, 0.06);
+  --box-shadow-sub: 0px 67px 19px 0px rgba(237, 177, 63, 0),
+    0px 43px 17px 0px rgba(237, 177, 63, 0.01),
+    0px 24px 14px 0px rgba(237, 177, 63, 0.05),
+    0px 11px 11px 0px rgba(237, 177, 63, 0.09),
+    0px 3px 6px 0px rgba(237, 177, 63, 0.1);
+  --box-shadow-button: 0px 45px 13px 0px rgba(237, 177, 63, 0),
+    0px 29px 11px 0px rgba(237, 177, 63, 0.01),
+    0px 16px 10px 0px rgba(237, 177, 63, 0.03),
+    0px 7px 7px 0px rgba(237, 177, 63, 0.05),
+    0px 2px 4px 0px rgba(237, 177, 63, 0.06);
+  background: url(../src/assets/background/Background\ pattern.svg);
+  background-color: var(--white-2);
+  background-repeat: repeat;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@font-face {
+  font-family: "Merriweather";
+  src: url(../src/assets/fonts/Merriweather.woff2);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
 }

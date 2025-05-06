@@ -1,5 +1,9 @@
 import ButtonAlt from "../components/ButtonAlt"
+import ButtonMain from "../components/ButtonMain"
+import ContentContainer from "../components/ContentContainer"
+import SubContent from "../components/SubContent"
 import styles from "../styles/Intro.module.css"
+import shareIcon from "../assets/icons/Share.svg"
 
 function Intro() {
   const mainContent = (
@@ -13,33 +17,33 @@ function Intro() {
   )
 
   const subContent1 = (
-    <div className={styles.subContainer}>
+    <>
       <h3 className={styles.subContainerTitle}>Why should I play?</h3>
-      <ul>
-        <li className={styles.listItem}>Shapes your brain and makes you smarter</li>
-        <li className={styles.listItem}>Creates a heart-to-heart connection</li>
-        <li className={styles.listItem}>Increases your resourcefulness</li>
-        <li className={styles.listItem}>Builds your resilience</li>
-        <li className={styles.listItem}>Amplifies your confidence</li>
+      <ul className={styles.list}>
+        <li className={styles.listItem}><div className={styles.bullet}></div><span>Shapes your brain and makes you smarter</span></li>
+        <li className={styles.listItem}><div className={styles.bullet}></div><span>Creates a heart-to-heart connection</span></li>
+        <li className={styles.listItem}><div className={styles.bullet}></div><span>Increases your resourcefulness</span></li>
+        <li className={styles.listItem}><div className={styles.bullet}></div><span>Builds your resilience</span></li>
+        <li className={styles.listItem}><div className={styles.bullet}></div><span>Amplifies your confidence</span></li>
       </ul>  
-    </div>
+    </>
   )
 
   const subContent2 = (
-    <div className={styles.subContainer}>
+    <>
       <h3 className={styles.subContainerTitle}>What will my Play Genius score reveal?</h3>
-      <ul>
-        <li className={styles.listItem}>Baselines your play intelligence</li>
-        <li className={styles.listItem}>Reveals 6 aspects of your relationship with play</li>
-        <li className={styles.listItem}>Highlights how you benefit from playing</li>
-        <li className={styles.listItem}>Points to opportunities for more play</li>
+      <ul className={styles.list}>
+        <li className={styles.listItem}><div className={styles.bullet}></div><span>Baselines your play intelligence</span></li>
+        <li className={styles.listItem}><div className={styles.bullet}></div><span>Reveals 6 aspects of your relationship with play</span></li>
+        <li className={styles.listItem}><div className={styles.bullet}></div><span>Highlights how you benefit from playing</span></li>
+        <li className={styles.listItem}><div className={styles.bullet}></div><span>Points to opportunities for more play</span></li>
       </ul>
-    </div>
+    </>
   )
 
   return(
     <main className={styles.intro}>
-      <ButtonAlt buttonText={'Share quiz'} iconSrc={''} iconAlt={''}/>
+      <div className={styles.buttonContainer}><ButtonAlt buttonText={'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/></div>
       <ContentContainer content={mainContent}/>
       <div className={styles.subContainer}>
         <SubContent content={subContent1}/>

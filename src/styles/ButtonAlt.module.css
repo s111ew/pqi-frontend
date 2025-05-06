@@ -1,15 +1,38 @@
 .button {
-  color: var(--text-black);
-  padding: 16px 28px;
-  border: 3px solid var(--stroke-colour);
+  color: var(--black-1);
+  background-color: var(--white-1);
+  padding: 0px 28px;
+  border: 3px solid var(--white-4);
   border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: var(--box-shadow-button);
+  flex-shrink: 0;
+  height: 100%;
+}
+
+.button:hover {
+  border: 3px solid var(--orange-2);
+  cursor: pointer;
+}
+
+.button:active {
+  background-color: var(--white-4);
 }
 
 .buttonText {
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 14px;
+  margin: 0px;
 }
 
 .buttonIcon {
   width: 24px;
   height: 24px;
+}
+
+.disabled {
+  stroke: 3px solid var(--disabled) !important;
+  color: var(--disabled-text) !important;
 }
