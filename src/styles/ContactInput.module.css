@@ -12,6 +12,22 @@
   font-family: Helvetica, Arial, sans-serif;
 }
 
+.input:focus {
+  border: 2px solid var(--orange-2);
+  border-color: var(--orange-2);
+  outline: var(--orange-2);
+}
+
+.error {
+  border: 2px dashed var(--red) !important;
+}
+
+.error:focus {
+  border: 2px solid var(--red) !important;
+  border-color: var(--red);
+  outline: var(--red);
+}
+
 .inputButton {
   position: absolute;
   right: 10px;
@@ -25,16 +41,30 @@
   background-color: var(--orange-1);
 }
 
+.inputButton.sent {
+  width: 96%;
+  justify-content: center !important;
+}
+
+.sent:hover {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+}
+
+.sent:active {
+  background-color: var(--orange-1) !important;
+}
+
 .inputButton:hover {
   cursor: pointer;
-  background-color: var(--white-1) !important;
   box-shadow: 0px 0px 0px 3px var(--orange-2) inset;
   -webkit-box-shadow: 0px 0px 0px 3px var(--orange-2) inset;
   -moz-box-shadow: 0px 0px 0px 3px var(--orange-2) inset;
 }
 
 .inputButton:active {
-  background-color: var(--orange-2) !important;
+  background-color: var(--orange-2);
 }
 
 .buttonText {

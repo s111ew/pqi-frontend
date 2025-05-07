@@ -5,7 +5,11 @@ import SubContent from "../components/SubContent"
 import styles from "../styles/Intro.module.css"
 import shareIcon from "../assets/icons/Share.svg"
 
-function Intro({ setCurrentPage }) {
+function Intro({ setCurrentPage, setShareModalVisible }) {
+  const handleShareClick = () => {
+    setShareModalVisible(true);
+  }
+
   const onClick = () => {
     console.log("Clicked! Going to 'start'");
     setCurrentPage("start");
@@ -47,7 +51,7 @@ function Intro({ setCurrentPage }) {
 
   return(
     <main className={styles.intro}>
-      <div className={styles.buttonContainer}><ButtonAlt buttonText={'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/></div>
+      <div className={styles.buttonContainer}><ButtonAlt onClick={handleShareClick} buttonText={'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/></div>
       <ContentContainer content={mainContent}/>
       <div className={styles.subContainer}>
         <SubContent content={subContent1}/>

@@ -66,6 +66,92 @@
   line-height: 34px;
 }
 
+.resultGraphic {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.bubbleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.bubbleRow {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.bubble {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.social {
+  background-color: var(--social);
+}
+.emotional {
+  background-color: var(--emotional);
+}
+.physical {
+  background-color: var(--physical);
+}
+.playful {
+  background-color: var(--playful);
+}
+.cognitive {
+  background-color: var(--cognitive);
+}
+.systemic {
+  background-color: var(--systemic);
+}
+
+.bubbleText {
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.highestLowest {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.highestContainer,
+.lowestContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.highestLowestHeader {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--teal-1);
+}
+
+.highestLowestTitle {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}
+
 .content {
   display: flex;
   flex-direction: column;

@@ -10,43 +10,42 @@ function Question({ setCurrentPage, user, setUser }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = (score) => {
-      setCurrentIndex(currentIndex + 1);
-      setUser((prev) => {
-        const newAnswer = { question: questions[currentIndex], answer: score };
-      
-        // If answers doesn't exist, create it as a new array
-        if (!prev.answers) {
-          return { ...prev, answers: [newAnswer] };
-        }
-      
-        // If answers already exists, append to it
-        return {
-          ...prev,
-          answers: [...prev.answers, newAnswer],
-        };
-      });
-      if (!(currentIndex < questions.length - 1)) {
-        setCurrentPage("result");
+    const { question, category } = questions[currentIndex];
+    const newAnswer = { question, category, answer: score };
+  
+    setCurrentIndex(currentIndex + 1);
+  
+    setUser((prev) => {
+      if (!prev.answers) {
+        return { ...prev, answers: [newAnswer] };
+      }
+  
+      return {
+        ...prev,
+        answers: [...prev.answers, newAnswer],
+      };
+    });
+  
+    if (!(currentIndex < questions.length - 1)) {
+      setCurrentPage("result");
     }
-    console.log(user)
+  
+    console.log(user.answers); 
   };
+  
 
   const handlePrevious = () => {
     if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
+      const newIndex = currentIndex - 1;
+      setCurrentIndex(newIndex);
   
       setUser((prev) => {
-        if (!prev.answers || prev.answers.length === 0) {
-          return prev; // nothing to remove
-        }
+        const prevAnswers = prev.answers || [];
+        const updatedAnswers = prevAnswers.slice(0, newIndex);
   
-        const updatedAnswers = [...prev.answers];
-        updatedAnswers.pop(); // remove the last answer
-  
-        // If the array is now empty, omit the 'answers' key entirely
         if (updatedAnswers.length === 0) {
           // eslint-disable-next-line no-unused-vars
-          const { answers, ...rest } = prev; // destructure to exclude 'answers'
+          const { answers, ...rest } = prev;
           return rest;
         }
   
@@ -56,7 +55,12 @@ function Question({ setCurrentPage, user, setUser }) {
         };
       });
     }
+    if (currentIndex === 0) {
+      setUser('');
+      setCurrentPage("start");
+    }
   };
+  
 
   const mainContent = (
     <div className={styles.questionContainer}>
@@ -73,7 +77,7 @@ function Question({ setCurrentPage, user, setUser }) {
     <main className={styles.question}>
       <ContentContainer content={mainContent}/>
       <div className={styles.progress}>
-        <ButtonAlt onClick={handlePrevious} buttonText={'Previous question'}/>
+        <ButtonAlt onClick={handlePrevious} buttonText={currentIndex === 0 ? "Go back" : "Previous question"}/>
         <ProgressBar length={(currentIndex) * 5}/>
       </div>
     </main>

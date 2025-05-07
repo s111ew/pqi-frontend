@@ -15,7 +15,7 @@ function Start({ setCurrentPage, setUser }) {
   const handleClick = () => {
     if (isValid) {
       setCurrentPage("question");
-      setUser({userName: {name}});
+      setUser({name});
     }
   };
 

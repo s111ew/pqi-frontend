@@ -8,25 +8,164 @@ import shareIcon from "../assets/icons/Share.svg"
 import tipIcon from "../assets/icons/Tip.svg"
 import infoIcon from "../assets/icons/Info.svg"
 import headshot from "../assets/headshot.png"
+import { best, worst } from "../tools/bestWorstCopy.js"
+import { useEffect, useState } from "react"
 
-function Result({num, username}) {
-  num = 60;
-  username = 'Sam'
+function Result({ setShareModalVisible, user, setUser }) {
+  const [lowest, setLowest] = useState();
+  const [highest, setHighest] = useState();
+
+  useEffect(() => {
+    if (user && user.answers) {
+      const { topCategory, bottomCategory } = getTopAndBottomCategories(user);
+      setHighest(topCategory);
+      setLowest(bottomCategory);
+    }
+  }, [user]);
+
+  function getTopAndBottomCategories(data) {
+    const scores = {};
+  
+    // Calculate cumulative scores for each category
+    data.answers.forEach(({ category, answer }) => {
+      if (!scores[category]) {
+        scores[category] = 0;
+      }
+      scores[category] += answer;
+    });
+  
+    let topCategory = null;
+    let bottomCategory = null;
+    let highestScore = -Infinity;
+    let lowestScore = Infinity;
+  
+    // Determine top and bottom scoring categories
+    for (const category in scores) {
+      const score = scores[category];
+      if (score > highestScore) {
+        highestScore = score;
+        topCategory = category;
+      }
+      if (score < lowestScore) {
+        lowestScore = score;
+        bottomCategory = category;
+      }
+    }
+  
+    return {
+      topCategory,
+      topScore: highestScore,
+      bottomCategory,
+      bottomScore: lowestScore,
+    };
+  }
+  
+
+  const goToCoaching = () => {
+    const url = "https://theschoolofplay.org/coaching/"
+    window.open(url, '_blank');
+  }
+  const goToCourses = () => {
+    const url = "https://theschoolofplay.org/courses/"
+    window.open(url, '_blank');
+  }
+  const goToChat = () => {
+    const url = "https://calendly.com/portia-yz8/free-discovery-call-with-portia?month=2025-05"
+    window.open(url, '_blank');
+  }
+  const handleClick = () => {
+    setShareModalVisible(true)
+  }
+
+  function calculateCategoryScores(data) {
+    const categoryScores = {};
+  
+    data.answers.forEach(({ category, answer }) => {
+      if (!categoryScores[category]) {
+        categoryScores[category] = 0;
+      }
+      categoryScores[category] += answer;
+    });
+  
+    return categoryScores;
+  }
+
+  const scores = calculateCategoryScores(user);
+
+  const socialWidth = 98 + (scores.social * 8.8) + "px"
+  const emotionalWidth = 98 + (scores.emotional * 8.8) + "px"
+  const physicalWidth = 98 + (scores.physical * 8.8) + "px"
+  const systemicWidth = 98 + (scores.systemic * 8.8) + "px"
+  const cognitiveWidth = 98 + (scores.cognitive * 8.8) + "px"
+  const playfulWidth = 98 + (scores.playful * 5.28) + "px"
+
+  const handlePageScroll = () => {
+    const section = document.getElementById("email-section");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const calculatePercentage = (answers) => {
+    let total = 0;
+    answers.forEach(answer => {
+      total += answer.answer
+    })
+    return total;
+  }
+
   const result = (
     <div className={`${styles.subContent} ${styles.large}`}>
       <div className={styles.resultContainer}>
         <div className={styles.resultIntro}>
           <p className={styles.resultPre}>Your Play Genius Score:</p>
           <div className={styles.numContainer}>
-            <p className={styles.resultNum}>{num}</p>
+            <p className={styles.resultNum}>{calculatePercentage(user.answers)}</p>
             <p className={styles.percentage}>%</p>
           </div>
-          <p className={styles.niceOne}>Nice one {username}!<br></br>You enjoy playing and <br></br>can definitely play more.</p>
+          <p className={styles.niceOne}>Nice one {user.name}!<br></br>You enjoy playing and <br></br>can definitely play more.</p>
         </div>
         <div className={styles.resultGraphic}>
-          
+          <p className={styles.resultPre}>Your results by categories:</p>
+          <div className={styles.bubbleContainer}>
+            <div className={styles.bubbleRow}>
+              <div className={`${styles.bubble} ${styles.social}`} style={{width: socialWidth, height: socialWidth}}><span className={styles.bubbleText}>Social<br></br>Development</span></div>
+              <div className={`${styles.bubble} ${styles.emotional}`} style={{width: emotionalWidth, height: emotionalWidth}}><span className={styles.bubbleText}>Emotional<br></br>Development</span></div>
+            </div>
+            <div className={styles.bubbleRow}>
+              <div className={`${styles.bubble} ${styles.physical}`} style={{width: physicalWidth, height: physicalWidth}}><span className={styles.bubbleText}>Physical<br></br>Development</span></div>
+              <div className={`${styles.bubble} ${styles.playful}`} style={{width: playfulWidth, height: playfulWidth}}><span className={styles.bubbleText}>Playful<br></br>Behaviours</span></div>
+              <div className={`${styles.bubble} ${styles.cognitive}`} style={{width: cognitiveWidth, height: cognitiveWidth}}><span className={styles.bubbleText}>Cognitive<br></br>Development</span></div>
+            </div>
+            <div className={styles.bubbleRow}>
+              <div className={`${styles.bubble} ${styles.systemic}`} style={{width: systemicWidth, height: systemicWidth}}><span className={styles.bubbleText}>Systemic<br></br>Development</span></div>
+            </div>
+            <div className={styles.bubbleRow}></div>
+            <div className={styles.bubbleRow}></div>
+          </div>
+        </div>
+        <div className={styles.highestLowest}>
+          <div className={styles.highestContainer}>
+            <p className={styles.highestLowestHeader}>Your highest scoring category:</p>
+            {highest && best[highest] && (
+            <>
+              <p className={styles.highestLowestTitle}>{best[highest].title}</p>
+              <p className={styles.highestLowestBody}>{best[highest].body}</p>
+            </>
+          )}
+          </div>
+          <div className={styles.lowestContainer}>
+            <p className={styles.highestLowestHeader}>Your lowest scoring category:</p>
+            {lowest && worst[lowest] && (
+              <>
+                <p className={styles.highestLowestTitle}>{worst[lowest].title}</p>
+                <p className={styles.highestLowestBody}>{worst[lowest].body}</p>
+              </>
+            )}
+          </div>
         </div>
       </div>
+      <div id="email-section"></div>
     </div>
   )
 
@@ -58,7 +197,7 @@ function Result({num, username}) {
       <h2 className={styles.emailTitle}>Keep the fun going!</h2>
       <p>Get your results by email, and find out what your results say about you and your relationship with play.</p>
       <div className={styles.inputContainer}>
-        <ContactInput textPlaceholder={'Email'} buttonText={'Save results'} />
+        <ContactInput setUser={setUser} textPlaceholder={'Email'} buttonText={'Save results'} />
         <div className={styles.disclaimer}><img src={infoIcon} alt="tip" /><span>We don't share your information with others. Unsubscribe at anytime.</span></div>
       </div>
     </div>
@@ -72,7 +211,7 @@ function Result({num, username}) {
       <p>Based on Portia's 20+ years in enabling change in organisations and with individuals, it is through play alchemy that we can enable transformational change that is fun, effective and efficient - at work, at home and anywhere we go.</p>
       <p className={styles.bold}>Book a free discovery session with Portia to uncover the possibilities of Playful Leadership</p>
       <div className={`${styles.buttonContainer} ${styles.singleButton}`}>
-        <ButtonMain buttonText={"Let's chat!"} />
+        <ButtonMain onClick={goToChat} buttonText={"Let's chat!"} />
       </div>
     </div>
   )
@@ -82,8 +221,8 @@ function Result({num, username}) {
       <h3>More about the School of Play</h3>
       <p>We at The School of Play cordially invite you to reconnect with your playful self - the most powerful resource you have - for living more of the life you dream of. </p>
       <div className={styles.buttonContainer}>
-        <ButtonMain buttonText={"Explore coaching"} />
-        <ButtonMain buttonText={"Browse courses"} />
+        <ButtonMain onClick={goToCoaching} buttonText={"Explore coaching"} />
+        <ButtonMain onClick={goToCourses} buttonText={"Browse courses"} />
       </div>
     </div>
   )
@@ -91,16 +230,16 @@ function Result({num, username}) {
   return(
     <main className={styles.result}>
       <div className={styles.buttonContainer}>
-        <ButtonAlt buttonText={'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
-        <ButtonMain buttonText={'Save your results'} iconSrc={tipIcon} iconAlt={'save your results'}/>
+        <ButtonAlt onClick={handleClick} buttonText={'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
+        <ButtonMain onClick={handlePageScroll} buttonText={'Save your results'} iconSrc={tipIcon} iconAlt={'save your results'}/>
       </div>
       <div className={styles.content}>
         <SubContent content={result}/>
+        <ContentContainer content={content3}/>
         <div className={styles.subContainer}>
           <SubContent content={content1}/>
           <SubContent content={content2}/>
         </div>
-        <ContentContainer content={content3}/>
         <SubContent content={content4}/>
         <SubContent content={content5}/>
       </div>
