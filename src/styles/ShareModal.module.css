@@ -122,3 +122,8 @@
 .disclaimer {
   color: var(--disabled-text);
 }
+
+.qrCode > img {
+  width: 227px;
+  height: 227px;
+}

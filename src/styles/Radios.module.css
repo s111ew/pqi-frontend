@@ -20,12 +20,21 @@
   background-color: white;
 }
 
+.disabled:hover {
+  background-color: var(--white-1) !important;
+  border: 3px dashed var(--orange-2) !important;
+}
+
+.disabled:active {
+  background-color: var(--white-1) !important;
+}
+
 .radio:hover {
   border: 3px solid var(--orange-2);
   background-color: var(--orange-2);
 }
 
-.radio:active::after {
+.radio:not(.disabled):active::after {
   position: absolute;
   content: url(../assets/Scribble.svg);
   top: -5px;

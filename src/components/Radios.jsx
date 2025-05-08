@@ -37,14 +37,14 @@ function Radios({ onNext }) {
             style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
           >
             <input
-              className={styles.radio}
+              className={`${styles.radio} ${disabled && index !== selectedIndex ? styles.disabled : ''}`}
               type="radio"
               name="truth-scale"
               value={label}
               checked={selectedIndex === index}
               onChange={() => handleChange(index)}
               disabled={disabled}
-            />
+          />
           </label>
         ))}
       </div>

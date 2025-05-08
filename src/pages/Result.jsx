@@ -6,7 +6,6 @@ import SubContent from "../components/SubContent"
 import styles from "../styles/Result.module.css"
 import shareIcon from "../assets/icons/Share.svg"
 import tipIcon from "../assets/icons/Tip.svg"
-import infoIcon from "../assets/icons/Info.svg"
 import headshot from "../assets/headshot.png"
 import { best, worst } from "../tools/bestWorstCopy.js"
 import { useEffect, useState } from "react"
@@ -14,6 +13,31 @@ import { useEffect, useState } from "react"
 function Result({ setShareModalVisible, user, setUser }) {
   const [lowest, setLowest] = useState();
   const [highest, setHighest] = useState();
+
+  const calculateHeaderText = () => {
+    if (!user || !user.answers) return null;
+    const percentage = calculatePercentage(user.answers);
+    if (percentage < 40) {
+      return (
+        <p className={styles.niceOne}>Let's celebrate {user.name}!<br></br>You've made a start and<br></br>there's lots more room<br></br>for play.</p>
+      )
+    }
+    if (percentage < 60) {
+      return (
+        <p className={styles.niceOne}>Yay {user.name}!<br></br>You're on your way to<br></br>more play.</p>
+      )
+    }
+    if (percentage < 80) {
+      return (
+        <p className={styles.niceOne}>Nice one {user.name}!<br></br>You enjoy playing and <br></br>can definitely play more.</p>
+      )
+    }
+    if (percentage >= 80) {
+      return (
+        <p className={styles.niceOne}>Wowsers {user.name}!<br></br>You play a lot. Keep it up.</p>
+      )
+    }
+  }
 
   useEffect(() => {
     if (user && user.answers) {
@@ -123,7 +147,7 @@ function Result({ setShareModalVisible, user, setUser }) {
             <p className={styles.resultNum}>{calculatePercentage(user.answers)}</p>
             <p className={styles.percentage}>%</p>
           </div>
-          <p className={styles.niceOne}>Nice one {user.name}!<br></br>You enjoy playing and <br></br>can definitely play more.</p>
+          {calculateHeaderText()}
         </div>
         <div className={styles.resultGraphic}>
           <p className={styles.resultPre}>Your results by categories:</p>
@@ -140,8 +164,6 @@ function Result({ setShareModalVisible, user, setUser }) {
             <div className={styles.bubbleRow}>
               <div className={`${styles.bubble} ${styles.systemic}`} style={{width: systemicWidth, height: systemicWidth}}><span className={styles.bubbleText}>Systemic<br></br>Development</span></div>
             </div>
-            <div className={styles.bubbleRow}></div>
-            <div className={styles.bubbleRow}></div>
           </div>
         </div>
         <div className={styles.highestLowest}>
@@ -196,10 +218,7 @@ function Result({ setShareModalVisible, user, setUser }) {
     <div className={styles.emailContainer}>
       <h2 className={styles.emailTitle}>Keep the fun going!</h2>
       <p>Get your results by email, and find out what your results say about you and your relationship with play.</p>
-      <div className={styles.inputContainer}>
-        <ContactInput setUser={setUser} textPlaceholder={'Email'} buttonText={'Save results'} />
-        <div className={styles.disclaimer}><img src={infoIcon} alt="tip" /><span>We don't share your information with others. Unsubscribe at anytime.</span></div>
-      </div>
+      <ContactInput setUser={setUser} textPlaceholder={'Email'} buttonText={'Save results'} />
     </div>
   )
 

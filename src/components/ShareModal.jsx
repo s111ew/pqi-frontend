@@ -2,12 +2,13 @@ import ContentContainer from "./ContentContainer"
 import styles from "../styles/ShareModal.module.css"
 import { useState, useEffect, useRef } from "react";
 import tipIcon from "../assets/icons/Info.svg"
-import qrCode from "../assets/qrCode.png"
+import qrCode from "../assets/qrCode2.png"
+import close from "../assets/icons/X.svg"
 
 function ShareModal({ setShareModalVisible }) {
   const linkText = "http://quiz.theschoolofplay.org";
   const [copied, setCopied] = useState(false);
-  const containerRef = useRef(null); // Ref for the ContentContainer wrapper
+  const containerRef = useRef(null);
 
   const handleClick = () => {
     setCopied(true);
@@ -63,8 +64,7 @@ function ShareModal({ setShareModalVisible }) {
   return (
     <div className={styles.background}>
       <div className={styles.shareModal}>
-        <div className={styles.closeButton}>X</div>
-        {/* Wrap ContentContainer in a div and attach the ref */}
+        <div className={styles.closeButton}><img src={close} alt="close" /></div>
         <div ref={containerRef}>
           <ContentContainer content={content} />
         </div>
