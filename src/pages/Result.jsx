@@ -19,22 +19,22 @@ function Result({ setShareModalVisible, user, setUser }) {
     const percentage = calculatePercentage(user.answers);
     if (percentage < 40) {
       return (
-        <p className={styles.niceOne}>Let's celebrate {user.name}!<br></br>You've made a start and<br></br>there's lots more room<br></br>for play.</p>
+        <p className={styles.niceOne}>Let's celebrate {user.firstName}!<br></br>You've made a start and<br></br>there's lots more room<br></br>for play.</p>
       )
     }
     if (percentage < 60) {
       return (
-        <p className={styles.niceOne}>Yay {user.name}!<br></br>You're on your way to<br></br>more play.</p>
+        <p className={styles.niceOne}>Yay {user.firstName}!<br></br>You're on your way to<br></br>more play.</p>
       )
     }
     if (percentage < 80) {
       return (
-        <p className={styles.niceOne}>Nice one {user.name}!<br></br>You enjoy playing and <br></br>can definitely play more.</p>
+        <p className={styles.niceOne}>Nice one {user.firstName}!<br></br>You enjoy playing and <br></br>can definitely play more.</p>
       )
     }
     if (percentage >= 80) {
       return (
-        <p className={styles.niceOne}>Wowsers {user.name}!<br></br>You play a lot. Keep it up.</p>
+        <p className={styles.niceOne}>Wowsers {user.firstName}!<br></br>You play a lot. Keep it up.</p>
       )
     }
   }

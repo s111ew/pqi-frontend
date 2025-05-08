@@ -8,14 +8,14 @@ import butterflyIcon from "../assets/backgroundIcons/Butterfly nudge.svg";
 import lightbulbIcon from "../assets/backgroundIcons/Tiplarge.svg";
 
 function Start({ setCurrentPage, setUser }) {
-  const [name, setName] = useState("");
+  const [firstName, setfirstName] = useState("");
 
-  const isValid = /[a-z0-9]/i.test(name);
+  const isValid = /[a-z0-9]/i.test(firstName);
 
   const handleClick = () => {
     if (isValid) {
       setCurrentPage("question");
-      setUser({name});
+      setUser({firstName});
     }
   };
 
@@ -23,7 +23,7 @@ function Start({ setCurrentPage, setUser }) {
     <>
       <div className={styles.mainText}>
         <p>Ready, steady, go!<br />Who's taking the quiz today?</p>
-        <TextInput placeholderText="Name" value={name} onChange={(e) => setName(e.target.value)} />
+        <TextInput placeholderText="Name" value={firstName} onChange={(e) => setfirstName(e.target.value)} />
       </div>
       <ButtonMain
         buttonText={"First question"}
