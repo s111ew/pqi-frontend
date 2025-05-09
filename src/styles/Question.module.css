@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 16px;
   align-items: center;
-  padding: 150px 0px 94px 0px;
+  padding: 82px 0px 94px 0px;
   max-width: 874px;
   font-family: Helvetica, Arial, sans-serif;
   text-align: center;
@@ -53,23 +53,28 @@
 
 @media only screen and (min-width: 578px) and (max-width: 994px) {
   .question {
-    padding: 126px 16px 60px 16px;
+    padding: 82px 16px 60px 16px;
   }
 
   .disclaimer {
     font-size: 13px;
   }
-
-  .buttonText {
+  .question > div:last-child > div:first-child > p {
     font-size: 12px;
   }
 }
 
 @media only screen and (max-width: 578px) {
   .question {
-    padding: 96px 16px 60px 16px;
+    padding: 82px 16px 60px 16px;
   }
   .questionContainer {
     gap: 50px;
+  }
+  .disclaimer {
+    font-size: 11px;
+  }
+  .question > div:last-child > div:first-child > p {
+    font-size: 11px;
   }
 }

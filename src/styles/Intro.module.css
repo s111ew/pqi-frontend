@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 16px;
   align-items: center;
-  padding: 84px 0px;
+  padding: 16px 0px 94px 0px;
   max-width: 874px;
 }
 
@@ -79,7 +79,7 @@
 
 @media only screen and (max-width: 994px) {
   .intro {
-    padding: 60px 20px;
+    padding: 16px 20px;
   }
 
   .subContainer {
@@ -99,7 +99,7 @@
 
 @media only screen and (max-width: 578px) {
   .intro {
-    padding: 30px 16px;
+    padding: 16px 16px;
   }
 
   .mainText {

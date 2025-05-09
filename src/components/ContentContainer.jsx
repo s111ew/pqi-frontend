@@ -1,8 +1,8 @@
 import styles from "../styles/ContentContainer.module.css"
 
-function ContentContainer({ content }) {
+function ContentContainer({ isQuestion, content }) {
   return(
-    <section className={styles.container}>
+    <section className={`${styles.container} ${isQuestion ? styles.question : ''}`}>
       {content}
     </section>
   )

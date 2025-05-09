@@ -75,7 +75,7 @@ function Question({ setCurrentPage, user, setUser }) {
 
   return(
     <main className={styles.question}>
-      <ContentContainer content={mainContent}/>
+      <ContentContainer isQuestion={true} content={mainContent}/>
       <div className={styles.progress}>
         <ButtonAlt onClick={handlePrevious} buttonText={currentIndex === 0 ? "Go back" : "Previous question"}/>
         <ProgressBar length={(currentIndex) * 5}/>

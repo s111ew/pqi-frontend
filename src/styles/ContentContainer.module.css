@@ -11,16 +11,25 @@
   width: 100%;
 }
 
+.question {
+  padding: 60px 204px;
+  gap: 100px !important;
+}
+
 @media only screen and (max-width: 578px) {
   .container {
     padding: 72px 30px;
-    gap: 100px;
+    gap: 80px !important;
   }
 }
 
 @media only screen and (max-width: 994px) and (min-width: 579px) {
   .container {
     padding: 128px 107px;
+    gap: 100px;
+  }
+  .question {
+    padding: 60px 107px;
     gap: 100px;
   }
 }
