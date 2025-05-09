@@ -3,12 +3,39 @@ import styles from "../styles/ContactInput.module.css";
 import infoIcon from "../assets/icons/Info.svg"
 import errorIcon from "../assets/icons/WarningOctagon.svg"
 
-function ContactInput({ setUser, textPlaceholder, buttonText }) {
+function ContactInput({ user, setUser, textPlaceholder, buttonText }) {
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState(false);
   const [sent, setSent] = useState(false);
 
+  async function sendQuizResults(user) {
+    const apiUrl = "http://localhost:3000/send-results";
   
+    try {
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName: user.firstName,
+          email: user.email,
+          answers: user.answers,
+        }),
+      });
+  
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Failed to send email");
+      }
+  
+      const responseData = await response.json();
+      console.log(responseData.message); // Email sent successfully
+  
+    } catch (error) {
+      console.error("Error sending quiz results:", error);
+    }
+  }
 
   const isValidEmail = (email) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -17,17 +44,22 @@ function ContactInput({ setUser, textPlaceholder, buttonText }) {
   const handleClick = () => {
     if (isValidEmail(email)) {
       setEmailError(false);
+  
       setUser((prev) => ({
         ...prev,
         email: email,
       }));
-      setEmail('');
+
+      const updatedUser = { ...user, email: email };
+      sendQuizResults(updatedUser);
+  
+      console.log(updatedUser);
       setSent(true);
-      //SEND EMAIL FUNCTION
     } else if (email !== '') {
       setEmailError(true);
     }
   };
+  
 
   const handleChange = (e) => {
     const value = e.target.value;

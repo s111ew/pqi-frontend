@@ -218,7 +218,7 @@ function Result({ setShareModalVisible, user, setUser }) {
     <div className={styles.emailContainer}>
       <h2 className={styles.emailTitle}>Keep the fun going!</h2>
       <p>Get your results by email, and find out what your results say about you and your relationship with play.</p>
-      <ContactInput setUser={setUser} textPlaceholder={'Email'} buttonText={'Save results'} />
+      <ContactInput user={user} setUser={setUser} textPlaceholder={'Email'} buttonText={'Save results'} />
     </div>
   )
 
