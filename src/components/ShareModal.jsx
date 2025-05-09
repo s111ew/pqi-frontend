@@ -2,11 +2,11 @@ import ContentContainer from "./ContentContainer"
 import styles from "../styles/ShareModal.module.css"
 import { useState, useEffect, useRef } from "react";
 import tipIcon from "../assets/icons/Info.svg"
-import qrCode from "../../public/qrCode2.png"
+import qrCode from "../assets/qrCode2.png"
 import close from "../assets/icons/X.svg"
 
 function ShareModal({ setShareModalVisible }) {
-  const linkText = "http://quiz.theschoolofplay.org";
+  const linkText = "https://quiz.theschoolofplay.org";
   const [copied, setCopied] = useState(false);
   const containerRef = useRef(null);
 
