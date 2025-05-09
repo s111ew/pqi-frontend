@@ -17,7 +17,7 @@
   gap: 16px;
   align-items: center;
   padding: 84px 0px;
-  width: 874px;
+  max-width: 874px;
 }
 
 .content {
@@ -126,4 +126,19 @@
 .qrCode > img {
   width: 227px;
   height: 227px;
+}
+
+/* --- Tablet: 579px to 994px --- */
+@media only screen and (max-width: 994px) {
+  .shareModal {
+    padding: 126px 20px 72px 20px;
+    width: 100%;
+  }
+}
+
+/* --- Mobile: up to 578px --- */
+@media only screen and (max-width: 578px) {
+  .shareModal {
+    padding: 96px 16px 60px 16px;
+  }
 }
