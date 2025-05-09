@@ -9,7 +9,7 @@ function ContactInput({ user, setUser, textPlaceholder, buttonText }) {
   const [sent, setSent] = useState(false);
 
   async function sendQuizResults(user) {
-    const apiUrl = "http://localhost:3000/send-results";
+    const apiUrl = "https://pure-sea-06854-167a1dac32b6.herokuapp.com/send-results";
   
     try {
       const response = await fetch(apiUrl, {
