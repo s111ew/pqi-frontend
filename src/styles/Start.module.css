@@ -47,6 +47,7 @@
 @media only screen and (max-width: 994px) {
   .start {
     padding: 126px 20px 72px 20px;
+    width: 100%;
   }
 
   .mainText {
@@ -62,7 +63,7 @@
 /* --- Mobile: up to 578px --- */
 @media only screen and (max-width: 578px) {
   .start {
-    padding: 126px 20px 60px 20px;
+    padding: 96px 16px 60px 16px;
   }
 
   .mainText {

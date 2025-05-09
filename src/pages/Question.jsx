@@ -63,14 +63,14 @@ function Question({ setCurrentPage, user, setUser }) {
   
 
   const mainContent = (
-    <div className={styles.questionContainer}>
+    <>
       <p className={styles.disclaimer}>For each statement, choose the answer that best reflects how you are in reality, not as you should or would like to behave.</p>
       <div className={styles.questionTextContainer}>
       <p>{`${currentIndex + 1} of ${questions.length}`}</p>
         <h2 className={styles.questionText}>{questions[currentIndex].question}</h2>
       </div>
       <Radios onNext={handleNext} />
-    </div>
+    </>
   );
 
   return(

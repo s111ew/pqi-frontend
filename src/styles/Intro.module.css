@@ -25,6 +25,7 @@
   line-height: 45px;
   font-family: "Merriweather";
   font-weight: 500;
+  text-align: center;
 }
 
 .mainText > p {
@@ -76,6 +77,26 @@
   list-style: none;
 }
 
+@media only screen and (max-width: 994px) {
+  .intro {
+    padding: 60px 20px;
+  }
+
+  .subContainer {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .mainText > p {
+    font-size: 13px;
+  }
+
+  .buttonContainer {
+    justify-content: center;
+  }
+}
+
 @media only screen and (max-width: 578px) {
   .intro {
     padding: 30px 16px;
@@ -95,25 +116,5 @@
 
   .listItem {
     font-size: 13px;
-  }
-}
-
-@media only screen and (max-width: 994px) {
-  .intro {
-    padding: 60px 20px;
-  }
-
-  .subContainer {
-    width: 100%;
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .mainText > p {
-    font-size: 13px;
-  }
-
-  .buttonContainer {
-    justify-content: center;
   }
 }

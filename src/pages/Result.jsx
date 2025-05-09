@@ -116,12 +116,15 @@ function Result({ setShareModalVisible, user, setUser }) {
 
   const scores = calculateCategoryScores(user);
 
-  const socialWidth = 98 + (scores.social * 8.8) + "px"
-  const emotionalWidth = 98 + (scores.emotional * 8.8) + "px"
-  const physicalWidth = 98 + (scores.physical * 8.8) + "px"
-  const systemicWidth = 98 + (scores.systemic * 8.8) + "px"
-  const cognitiveWidth = 98 + (scores.cognitive * 8.8) + "px"
-  const playfulWidth = 98 + (scores.playful * 5.28) + "px"
+  const baseSizeVW = 10; // equivalent of 98px
+  const scaleVW = 0.8; // each score point adds this much VW
+
+  const socialWidth = `clamp(90px, ${baseSizeVW + (scores.social * scaleVW)}vw, 200px)`;
+  const emotionalWidth = `clamp(80px, ${baseSizeVW + (scores.emotional * scaleVW)}vw, 200px)`;
+  const physicalWidth = `clamp(90px, ${baseSizeVW + (scores.physical * scaleVW)}vw, 200px)`;
+  const systemicWidth = `clamp(90px, ${baseSizeVW + (scores.systemic * scaleVW)}vw, 200px)`;
+  const cognitiveWidth = `clamp(90px, ${baseSizeVW + (scores.cognitive * scaleVW)}vw, 200px)`;
+  const playfulWidth = `clamp(90px, ${baseSizeVW + (scores.playful * scaleVW * 0.6)}vw, 200px)`;
 
   const handlePageScroll = () => {
     const section = document.getElementById("email-section");
