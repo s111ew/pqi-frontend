@@ -1,5 +1,5 @@
 import styles from "../styles/Radios.module.css";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 function Radios({ onNext }) {
   const options = [
@@ -12,20 +12,26 @@ function Radios({ onNext }) {
 
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [disabled, setDisabled] = useState(false);
+  const inputRefs = useRef([]);
 
   const handleChange = (index) => {
-    if (disabled) return;
-
-    setSelectedIndex(index);
-    setDisabled(true);
-
-    const score = index + 1;
-
-    setTimeout(() => {
-      onNext(score);
-      setSelectedIndex(null); // uncheck the radio
-      setDisabled(false);
-    }, 1000);
+   if (disabled) return;
+  
+   const inputEl = inputRefs.current[index];
+   inputEl?.classList.add(styles.touched); // Add custom style
+  
+   setSelectedIndex(index);
+   setDisabled(true);
+  
+   const score = index + 1;
+  
+   setTimeout(() => {
+     inputEl?.classList.remove(styles.touched); // Clean up effect
+     onNext(score);
+     setSelectedIndex(null); // Uncheck the radio
+     setDisabled(false);
+     inputRefs.current.forEach(input => input?.blur());
+   }, 1000);
   };
 
   return (
@@ -37,6 +43,7 @@ function Radios({ onNext }) {
             style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
           >
             <input
+              ref={(el) => inputRefs.current[index] = el}
               className={`${styles.radio} ${disabled && index !== selectedIndex ? styles.disabled : ''}`}
               type="radio"
               name="truth-scale"

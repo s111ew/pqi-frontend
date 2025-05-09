@@ -43,13 +43,30 @@
 
 .radio:checked {
   border: 3px solid var(--orange-2);
-  background-color: var(--orange-2);
+  background-color: var(--orange-2) !important;
 }
 
 .radio:checked::after {
   position: absolute;
   content: url(../assets/Scribble.svg);
   top: -5px;
+}
+
+@media (hover: none) {
+  .radio:hover {
+    background-color: transparent;
+    border: 3px dashed var(--orange-2);
+  }
+}
+
+.radio,
+.touched {
+  transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+.touched {
+  border: 3px solid var(--orange-2) !important;
+  background-color: var(--orange-2) !important;
 }
 
 .radioContainer,

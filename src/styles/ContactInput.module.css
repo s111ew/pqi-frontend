@@ -37,13 +37,18 @@
   border-radius: 50px;
   font-family: Helvetica, Arial, sans-serif;
   display: flex;
+  align-items: center;
   gap: 16px;
   background-color: var(--orange-1);
 }
 
-.inputButton.sent {
-  width: 96%;
+.sent {
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
   justify-content: center !important;
+  pointer-events: none;
 }
 
 .sent:hover {
@@ -69,6 +74,7 @@
 
 .buttonText {
   font-size: 14px;
+  text-align: center;
 }
 
 .buttonIcon {

@@ -55,6 +55,12 @@ function ContactInput({ user, setUser, textPlaceholder, buttonText }) {
   
       console.log(updatedUser);
       setSent(true);
+
+      setTimeout(() => {
+        setEmail('');
+        setSent(false);
+      }, 5000);
+      
     } else if (email !== '') {
       setEmailError(true);
     }
