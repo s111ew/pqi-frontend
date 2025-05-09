@@ -4,7 +4,7 @@
   gap: 16px;
   align-items: center;
   padding: 84px 0px;
-  width: 874px;
+  max-width: 874px;
 }
 
 .buttonContainer {
@@ -76,7 +76,44 @@
   list-style: none;
 }
 
-/* .listItem::marker {
-  color: var(--teal-2);
-  font-size: 2rem;
-} */
+@media only screen and (max-width: 578px) {
+  .intro {
+    padding: 30px 16px;
+  }
+
+  .mainText {
+    gap: 48px;
+  }
+
+  .mainText > h1 {
+    gap: 24px;
+  }
+
+  .subContainerTitle {
+    font-size: 13px;
+  }
+
+  .listItem {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 994px) {
+  .intro {
+    padding: 60px 20px;
+  }
+
+  .subContainer {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .mainText > p {
+    font-size: 13px;
+  }
+
+  .buttonContainer {
+    justify-content: center;
+  }
+}

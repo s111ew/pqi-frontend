@@ -4,7 +4,7 @@
   gap: 16px;
   align-items: center;
   padding: 150px 0px 94px 0px;
-  width: 874px;
+  max-width: 874px;
 }
 
 .mainText {
@@ -41,4 +41,40 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
+}
+
+/* --- Tablet: 579px to 994px --- */
+@media only screen and (max-width: 994px) {
+  .start {
+    padding: 126px 20px 72px 20px;
+  }
+
+  .mainText {
+    gap: 32px;
+  }
+
+  .subContainer {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* --- Mobile: up to 578px --- */
+@media only screen and (max-width: 578px) {
+  .start {
+    padding: 126px 20px 60px 20px;
+  }
+
+  .mainText {
+    gap: 24px;
+  }
+
+  .mainText > p {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .subContainerTitle {
+    font-size: 13px;
+  }
 }
