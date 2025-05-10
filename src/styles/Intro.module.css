@@ -9,6 +9,9 @@
 
 .buttonContainer {
   height: 50px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .mainText {
@@ -29,7 +32,7 @@
 }
 
 .mainText > p {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
   text-align: center;
@@ -44,10 +47,10 @@
 }
 
 .subContainerTitle {
+  font-family: "Helvetica Neue Semi", Helvetica, Arial, sans-serif;
   text-align: center;
   font-size: 14px;
   font-style: normal;
-  font-weight: 500;
   line-height: 20px;
   color: var(--teal-1);
 }
@@ -73,13 +76,14 @@
   gap: 20px;
   align-items: flex-start;
   font-size: 14px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   list-style: none;
 }
 
 @media only screen and (max-width: 994px) {
   .intro {
     padding: 16px 20px;
+    max-width: 664px;
   }
 
   .subContainer {
@@ -90,10 +94,6 @@
 
   .mainText > p {
     font-size: 13px;
-  }
-
-  .buttonContainer {
-    justify-content: center;
   }
 }
 

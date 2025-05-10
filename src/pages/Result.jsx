@@ -10,7 +10,7 @@ import headshot from "../assets/headshot.png"
 import { best, worst } from "../tools/bestWorstCopy.js"
 import { useEffect, useState } from "react"
 
-function Result({ setShareModalVisible, user, setUser }) {
+function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
   const [lowest, setLowest] = useState();
   const [highest, setHighest] = useState();
 
@@ -99,6 +99,14 @@ function Result({ setShareModalVisible, user, setUser }) {
   }
   const handleClick = () => {
     setShareModalVisible(true)
+  }
+  const resetQuiz = () => {
+    setUser('');
+    setCurrentPage("intro");
+    window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
   }
 
   function calculateCategoryScores(data) {
@@ -249,15 +257,26 @@ function Result({ setShareModalVisible, user, setUser }) {
     </div>
   )
 
+  const content6 = (
+    <div className={`${styles.subContent} ${styles.playAgainContainer}`}>
+      <h3>Retake the quiz</h3>
+      <p>Taking the Play Genius Quiz regularly helps to track your growing relationship with play</p>
+      <div className={styles.buttonContainer}>
+        <ButtonMain onClick={resetQuiz} buttonText={"Retake the Play Genius Quiz"} />
+      </div>
+    </div>
+  )
+
   return(
     <main className={styles.result}>
       <div className={styles.buttonContainer}>
+        <ButtonMain onClick={handlePageScroll} buttonText={'Save your results'} iconSrc={tipIcon} iconAlt={'save your results'} isOuter={true}/>
         <ButtonAlt onClick={handleClick} buttonText={'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
-        <ButtonMain onClick={handlePageScroll} buttonText={'Save your results'} iconSrc={tipIcon} iconAlt={'save your results'}/>
       </div>
       <div className={styles.content}>
         <SubContent content={result}/>
         <ContentContainer content={content3}/>
+        <SubContent content={content6}/>
         <div className={styles.subContainer}>
           <SubContent content={content1}/>
           <SubContent content={content2}/>

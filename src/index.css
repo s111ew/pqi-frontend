@@ -17,6 +17,7 @@ body {
   --white-4: rgb(255, 244, 225);
   --orange-1: rgb(252, 197, 91);
   --orange-2: rgba(237, 151, 62, 1);
+  --orange-3: rgba(237, 122, 62, 1);
   --teal-1: rgb(2, 106, 103);
   --teal-2: rgb(144, 181, 191);
   --teal-3: rgba(2, 106, 103, 0.1);
@@ -49,6 +50,8 @@ body {
   background: url(../src/assets/background/BackgroundPattern.svg);
   background-color: var(--white-2);
   background-repeat: repeat;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
 }
 
 #root {
@@ -61,6 +64,15 @@ body {
 @font-face {
   font-family: "Merriweather";
   src: url(../src/assets/fonts/Merriweather.woff2);
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url(../src/assets/fonts/HelveticaNeueRoman.woff2);
+}
+@font-face {
+  font-family: "Helvetica Neue Semi";
+  src: url(../src/assets/fonts/HelveticaNeueMedium.woff2);
 }
 
 img,

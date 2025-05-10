@@ -2,17 +2,22 @@
   color: var(--black-1);
   padding: 16px 28px;
   border-radius: 50px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   display: flex;
   gap: 16px;
   background-color: var(--orange-1);
+  align-items: center;
+}
+
+.outer {
+  box-shadow: var(--box-shadow-button);
 }
 
 .button:hover {
   cursor: pointer;
-  box-shadow: 0px 0px 0px 3px var(--orange-2) inset;
-  -webkit-box-shadow: 0px 0px 0px 3px var(--orange-2) inset;
-  -moz-box-shadow: 0px 0px 0px 3px var(--orange-2) inset;
+  box-shadow: 0px 0px 0px 3px var(--orange-3) inset;
+  -webkit-box-shadow: 0px 0px 0px 3px var(--orange-3) inset;
+  -moz-box-shadow: 0px 0px 0px 3px var(--orange-3) inset;
 }
 
 .button:active {
@@ -26,4 +31,10 @@
 .buttonIcon {
   width: 24px;
   height: 24px;
+}
+
+@media only screen and (max-width: 578px) {
+  .outer {
+    padding: 16px 20px;
+  }
 }

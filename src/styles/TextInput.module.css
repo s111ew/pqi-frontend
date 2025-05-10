@@ -1,10 +1,11 @@
 .input {
   width: 100%;
-  padding: 21px 0px;
+  padding: 20px 0px;
   border: 2px dashed var(--orange-2);
   border-radius: 50px;
   text-align: center;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 20px;
 }
 
 .input:focus {

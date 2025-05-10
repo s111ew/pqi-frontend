@@ -4,7 +4,7 @@ export default function useLocalStorageUser() {
   const [user, setUserState] = useState(() => {
     try {
       const storedUser = localStorage.getItem("user");
-      return storedUser ? JSON.parse(storedUser) : "";
+      return storedUser ? JSON.parse(storedUser) : null;
     } catch (err) {
       console.error("Failed to parse user from localStorage:", err);
       return "";

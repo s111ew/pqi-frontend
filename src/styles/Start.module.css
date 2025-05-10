@@ -3,8 +3,19 @@
   flex-direction: column;
   gap: 16px;
   align-items: center;
-  padding: 82px 0px 94px 0px;
+  padding: 16px 0px 94px 0px;
   max-width: 874px;
+}
+
+.inputContainer {
+  width: 100%;
+}
+
+.buttonContainer {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .mainText {
@@ -16,7 +27,7 @@
 }
 
 .mainText > p {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
   text-align: center;
@@ -31,9 +42,10 @@
 }
 
 .subContainerTitle {
+  font-family: "Helvetica Neue Semi", Helvetica, Arial, sans-serif;
   text-align: center;
   color: var(--teal-1);
-  font-weight: 500;
+  font-size: 14px;
   line-height: 20px;
 }
 
@@ -43,11 +55,22 @@
   gap: 18px;
 }
 
+.disclaimer {
+  font-size: 14px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--disabled-text);
+  align-self: flex-start;
+}
+
 /* --- Tablet: 579px to 994px --- */
 @media only screen and (max-width: 994px) {
   .start {
-    padding: 82px 20px 72px 20px;
-    width: 100%;
+    padding: 16px 20px 72px 20px;
+    max-width: 664px;
   }
 
   .mainText {
@@ -63,7 +86,11 @@
 /* --- Mobile: up to 578px --- */
 @media only screen and (max-width: 578px) {
   .start {
-    padding: 82px 16px 60px 16px;
+    padding: 16px 16px 60px 16px;
+  }
+
+  .disclaimer {
+    font-size: 12px;
   }
 
   .mainText {

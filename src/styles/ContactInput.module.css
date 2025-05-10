@@ -9,7 +9,7 @@
   border: 2px dashed var(--orange-2);
   border-radius: 50px;
   text-align: flex-start;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .input:focus {
@@ -35,7 +35,7 @@
   color: var(--black-1);
   padding: 16px 28px;
   border-radius: 50px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   display: flex;
   align-items: center;
   gap: 16px;
@@ -97,4 +97,10 @@
 
 .errorDisclaimer {
   color: var(--red);
+}
+
+@media screen and (max-width: 578px) {
+  .disclaimer {
+    font-size: 12px;
+  }
 }

@@ -4,8 +4,14 @@ import ContentContainer from "../components/ContentContainer"
 import SubContent from "../components/SubContent"
 import styles from "../styles/Intro.module.css"
 import shareIcon from "../assets/icons/Share.svg"
+import arrowIcon from "../assets/icons/arrowLeft.svg"
 
 function Intro({ setCurrentPage, setShareModalVisible }) {
+  const goToSop = () => {
+    const url = "https://theschoolofplay.org/"
+    window.open(url, '_blank');
+  }
+
   const handleShareClick = () => {
     setShareModalVisible(true);
   }
@@ -51,7 +57,10 @@ function Intro({ setCurrentPage, setShareModalVisible }) {
 
   return(
     <main className={styles.intro}>
-      <div className={styles.buttonContainer}><ButtonAlt onClick={handleShareClick} buttonText={'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/></div>
+      <div className={styles.buttonContainer}>
+        <ButtonAlt isReverse={true} onClick={goToSop} buttonText={'The School of Play'} iconSrc={arrowIcon} iconAlt={'Back to The School of Play'}/>
+        <ButtonAlt onClick={handleShareClick} buttonText={'Share'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
+      </div>
       <ContentContainer content={mainContent}/>
       <div className={styles.subContainer}>
         <SubContent content={subContent1}/>

@@ -1,10 +1,10 @@
 .result {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   display: flex;
   flex-direction: column;
   gap: 16px;
   align-items: center;
-  padding: 84px 0px 94px 0px;
+  padding: 16px 0px 94px 0px;
   max-width: 874px;
 }
 
@@ -141,15 +141,15 @@
 .highestLowestHeader {
   font-size: 14px;
   font-style: normal;
-  font-weight: 500;
+  font-family: "Helvetica Neue Semi", Helvetica, Arial, sans-serif;
   line-height: 20px;
   color: var(--teal-1);
 }
 
 .highestLowestTitle {
+  font-family: "Helvetica Neue Semi", Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-style: normal;
-  font-weight: 500;
   line-height: 20px;
 }
 
@@ -174,7 +174,7 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
 }
 
@@ -213,7 +213,7 @@
   flex-direction: column;
   gap: 36px;
   text-align: center;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 18px;
 }
@@ -241,17 +241,24 @@
   align-self: center;
 }
 
-.bold {
-  text-align: center;
-  font-family: "Helvetica Neue";
+h3 {
+  font-family: "Helvetica Neue Semi", Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-style: normal;
-  font-weight: 500;
+  line-height: 20px;
+}
+
+.bold {
+  text-align: center;
+  font-family: "Helvetica Neue Semi", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-style: normal;
   line-height: 20px;
 }
 
 .getInTouchContainer,
-.moreInfoContainer {
+.moreInfoContainer,
+.playAgainContainer {
   gap: 36px;
 }
 
@@ -261,8 +268,18 @@
 
 @media only screen and (max-width: 994px) {
   .result {
-    padding: 60px 20px;
-    width: 100%;
+    padding: 16px 20px;
+    max-width: 664px;
+  }
+
+  .buttonContainer:last-child {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .buttonContainer:first-child > div:last-child {
+    align-items: center;
   }
 
   .subContainer {
@@ -274,12 +291,16 @@
   .large {
     padding: 20px 75px;
   }
+
+  .content > section:last-child {
+    padding-bottom: 100px;
+  }
 }
 
 /* --- Mobile: up to 578px --- */
 @media only screen and (max-width: 578px) {
   .result {
-    padding: 30px 16px;
+    padding: 16px 16px;
   }
 
   .large {
@@ -288,20 +309,6 @@
 
   .content > section:first-child {
     padding: 40px 30px;
-  }
-
-  .buttonContainer:last-child {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .buttonContainer:first-child > div {
-    padding: 8px 14px;
-  }
-
-  .buttonContainer:first-child > div:last-child {
-    align-items: center;
   }
 
   .content > section:last-child {

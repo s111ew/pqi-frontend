@@ -5,9 +5,20 @@ import Radios from "../components/Radios";
 import styles from "../styles/Question.module.css"
 import questions from "../tools/questions.js"
 import { useState } from "react";
+import shareIcon from "../assets/icons/Share.svg"
+import arrowIcon from "../assets/icons/arrowLeft.svg"
 
-function Question({ setCurrentPage, user, setUser }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+function Question({ setShareModalVisible, setCurrentPage, user, setUser }) {
+  const [currentIndex, setCurrentIndex] = useState(() => {
+  if (user && Array.isArray(user.answers)) {
+    return user.answers.length;
+  }
+  return 0;
+});
+
+  const handleShareClick = () => {
+    setShareModalVisible(true);
+  }
 
   const handleNext = (score) => {
     const { question, category } = questions[currentIndex];
@@ -64,7 +75,7 @@ function Question({ setCurrentPage, user, setUser }) {
 
   const mainContent = (
     <>
-      <p className={styles.disclaimer}>For each statement, choose the answer that best reflects how you are in reality, not as you should or would like to behave.</p>
+      <p className={`${styles.disclaimer} ${currentIndex !== 0 ? styles.whiteText : ''}`}>For each statement, choose the answer that best reflects how you are in reality, not as you should or would like to behave.</p>
       <div className={styles.questionTextContainer}>
       <p>{`${currentIndex + 1} of ${questions.length}`}</p>
         <h2 className={styles.questionText}>{questions[currentIndex].question}</h2>
@@ -75,9 +86,12 @@ function Question({ setCurrentPage, user, setUser }) {
 
   return(
     <main className={styles.question}>
+      <div className={styles.buttonContainer}>
+        <ButtonAlt isReverse={true} onClick={handlePrevious} buttonText={currentIndex === 0 ? "Back" : "Previous question"} iconSrc={arrowIcon} iconAlt={'Back to previous page'}/>
+        <ButtonAlt onClick={handleShareClick} buttonText={'Share'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
+      </div>
       <ContentContainer isQuestion={true} content={mainContent}/>
       <div className={styles.progress}>
-        <ButtonAlt onClick={handlePrevious} buttonText={currentIndex === 0 ? "Go back" : "Previous question"}/>
         <ProgressBar length={(currentIndex) * 5}/>
       </div>
     </main>

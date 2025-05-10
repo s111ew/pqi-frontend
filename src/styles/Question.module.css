@@ -3,10 +3,17 @@
   flex-direction: column;
   gap: 16px;
   align-items: center;
-  padding: 82px 0px 94px 0px;
+  padding: 16px 0px 94px 0px;
   max-width: 874px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
+}
+
+.buttonContainer {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .questionContainer {
@@ -19,6 +26,10 @@
 .disclaimer {
   font-size: 14px;
   line-height: 18px;
+}
+
+.whiteText {
+  color: var(--white-1) !important;
 }
 
 .questionTextContainer {
@@ -53,7 +64,8 @@
 
 @media only screen and (min-width: 578px) and (max-width: 994px) {
   .question {
-    padding: 82px 16px 60px 16px;
+    padding: 16px 16px 60px 16px;
+    max-width: 664px;
   }
 
   .disclaimer {
@@ -66,7 +78,7 @@
 
 @media only screen and (max-width: 578px) {
   .question {
-    padding: 82px 16px 60px 16px;
+    padding: 16px 16px 60px 16px;
   }
   .questionContainer {
     gap: 50px;

@@ -1,10 +1,9 @@
 import styles from '../styles/ButtonMain.module.css';
-import classNames from 'classnames';
 
-function ButtonMain({ onClick, buttonText, iconSrc, iconAlt, className }) {
+function ButtonMain({ onClick, buttonText, iconSrc, iconAlt, isOuter }) {
   return (
     <div
-      className={classNames(styles.button, className)}
+      className={`${styles.button} ${isOuter ? styles.outer : ''}`}
       onClick={onClick}
     >
       <p className={styles.buttonText}>{buttonText}</p>

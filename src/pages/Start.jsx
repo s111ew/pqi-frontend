@@ -6,9 +6,21 @@ import ButtonMain from "../components/ButtonMain";
 import TextInput from "../components/TextInput";
 import butterflyIcon from "../assets/backgroundIcons/Butterfly nudge.svg";
 import lightbulbIcon from "../assets/backgroundIcons/Tiplarge.svg";
+import shareIcon from "../assets/icons/Share.svg"
+import arrowIcon from "../assets/icons/arrowLeft.svg"
+import ButtonAlt from "../components/ButtonAlt";
+import infoIcon from "../assets/icons/Info.svg"
 
-function Start({ setCurrentPage, setUser }) {
+function Start({ setShareModalVisible, setCurrentPage, setUser }) {
   const [firstName, setfirstName] = useState("");
+
+  const goBack = () => {
+    setCurrentPage("intro")
+  }
+
+  const handleShareClick = () => {
+    setShareModalVisible(true);
+  }
 
   const isValid = /[a-z0-9]/i.test(firstName);
 
@@ -23,7 +35,10 @@ function Start({ setCurrentPage, setUser }) {
     <>
       <div className={styles.mainText}>
         <p>Ready, steady, go!<br />Who's taking the quiz today?</p>
-        <TextInput placeholderText="Name" value={firstName} onChange={(e) => setfirstName(e.target.value)} />
+        <div className={styles.inputContainer}>
+          <TextInput placeholderText="Name" value={firstName} onChange={(e) => setfirstName(e.target.value)} />
+          <div className={styles.disclaimer}><img src={infoIcon} alt="tip" /><span>Please enter your first name to continue.</span></div>
+        </div>
       </div>
       <ButtonMain
         buttonText={"First question"}
@@ -52,6 +67,10 @@ function Start({ setCurrentPage, setUser }) {
 
   return (
     <main className={styles.start}>
+      <div className={styles.buttonContainer}>
+        <ButtonAlt isReverse={true} onClick={goBack} buttonText={'Back'} iconSrc={arrowIcon} iconAlt={'Back to previous page'}/>
+        <ButtonAlt onClick={handleShareClick} buttonText={'Share'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
+      </div>
       <ContentContainer content={mainContent} />
       <div className={styles.subContainer}>
         <SubContent content={subContent1} backgroundImg={lightbulbIcon} />
