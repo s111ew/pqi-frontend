@@ -261,7 +261,7 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
     <div className={`${styles.subContent} ${styles.playAgainContainer}`}>
       <h3>Retake the quiz</h3>
       <p>Taking the Play Genius Quiz regularly helps to track your growing relationship with play</p>
-      <div className={styles.buttonContainer}>
+      <div className={`${styles.buttonContainer} ${styles.singleButton}`}>
         <ButtonMain onClick={resetQuiz} buttonText={"Retake the Play Genius Quiz"} />
       </div>
     </div>
