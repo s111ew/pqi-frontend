@@ -258,7 +258,7 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
   )
 
   const content6 = (
-    <div className={`${styles.subContent} ${styles.playAgainContainer}`}>
+    <div className={`${styles.subContent} ${styles.large} ${styles.playAgainContainer}`}>
       <h3>Retake the quiz</h3>
       <p>Taking the Play Genius Quiz regularly helps to track your growing relationship with play</p>
       <div className={`${styles.buttonContainer} ${styles.singleButton}`}>

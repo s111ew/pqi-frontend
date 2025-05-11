@@ -262,6 +262,10 @@ h3 {
   gap: 36px;
 }
 
+.playAgainContainer > p {
+  text-align: center;
+}
+
 .singleButton {
   justify-content: center;
 }
