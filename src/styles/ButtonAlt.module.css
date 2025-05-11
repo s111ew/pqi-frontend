@@ -42,3 +42,9 @@
     padding: 16px 20px;
   }
 }
+
+@media only screen and (max-width: 348px) {
+  .button {
+    padding: 16px 10px;
+  }
+}
