@@ -19,6 +19,14 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
   const [playfulIsOpen, setPlayfulIsOpen] = useState(false);
   const [cognitiveIsOpen, setCognitiveIsOpen] = useState(false);
   const [systemicIsOpen, setSystemicIsOpen] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+
+  useEffect(() => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const calculateHeaderText = () => {
     if (!user || !user.answers) return null;
@@ -173,8 +181,12 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
                 <div onClick={() => {physicalIsOpen ? setPhysicalIsOpen(false) : setPhysicalIsOpen(true)}} className={`${styles.bubble} ${styles.physical} ${physicalIsOpen ? styles.physicalOpen : ''}`} style={{width: physicalWidth, height: physicalWidth}}><span className={styles.bubbleText}>{physicalIsOpen ? (`${scores.physical} / 15`) : (<>Physical<br></br>Development</>)}</span></div>
                 <div onClick={() => {cognitiveIsOpen ? setCognitiveIsOpen(false) : setCognitiveIsOpen(true)}} className={`${styles.bubble} ${styles.cognitive} ${cognitiveIsOpen ? styles.cognitiveOpen : ''}`} style={{width: cognitiveWidth, height: cognitiveWidth}}><span className={styles.bubbleText}>{cognitiveIsOpen ? (`${scores.cognitive} / 15`) : (<>Cognitive<br></br>Development</>)}</span></div>
               </div>
+              {screenWidth < 579 ?
+              ( <div className={styles.bubbleRow}>
+                  <div onClick={() => {socialIsOpen ? setSocialIsOpen(false) : setSocialIsOpen(true)}} className={`${styles.bubble} ${styles.social} ${socialIsOpen ? styles.socialOpen : ''}`} style={{width: socialWidth, height: socialWidth}}><span className={styles.bubbleText}>{socialIsOpen ? (`${scores.social} / 15`) : (<>Social<br></br>Development</>)}</span></div>
+                </div> ) : ''}
               <div className={styles.bubbleRow}>
-                <div onClick={() => {socialIsOpen ? setSocialIsOpen(false) : setSocialIsOpen(true)}} className={`${styles.bubble} ${styles.social} ${socialIsOpen ? styles.socialOpen : ''}`} style={{width: socialWidth, height: socialWidth}}><span className={styles.bubbleText}>{socialIsOpen ? (`${scores.social} / 15`) : (<>Social<br></br>Development</>)}</span></div>
+                { screenWidth > 579 ? ( <div onClick={() => {socialIsOpen ? setSocialIsOpen(false) : setSocialIsOpen(true)}} className={`${styles.bubble} ${styles.social} ${socialIsOpen ? styles.socialOpen : ''}`} style={{width: socialWidth, height: socialWidth}}><span className={styles.bubbleText}>{socialIsOpen ? (`${scores.social} / 15`) : (<>Social<br></br>Development</>)}</span></div> ) : ''}
                 <div onClick={() => {emotionalIsOpen ? setEmotionalIsOpen(false) : setEmotionalIsOpen(true)}} className={`${styles.bubble} ${styles.emotional} ${emotionalIsOpen ? styles.emotionalOpen : ''}`} style={{width: emotionalWidth, height: emotionalWidth}}><span className={styles.bubbleText}>{emotionalIsOpen ? (`${scores.emotional} / 15`) : (<>Emotional<br></br>Development</>)}</span></div>
                 <div onClick={() => {systemicIsOpen ? setSystemicIsOpen(false) : setSystemicIsOpen(true)}} className={`${styles.bubble} ${styles.systemic} ${systemicIsOpen ? styles.systemicOpen : ''}`} style={{width: systemicWidth, height: systemicWidth}}><span className={styles.bubbleText}>{systemicIsOpen ? (`${scores.systemic} / 15`) : (<>Systemic<br></br>Development</>)}</span></div>
               </div>
@@ -186,7 +198,7 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
       </div>
     <div className={styles.highestLowest}>
       <div className={styles.highestContainer}>
-        <p className={styles.highestLowestHeader}>Your highest scoring category:</p>
+        <p className={styles.highestLowestHeader}>One of your high scoring categories:</p>
           {highest && best[highest] && (
             <>
               <p className={styles.highestLowestTitle}>{best[highest].title}</p>
@@ -195,7 +207,7 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
           )}
           </div>
           <div className={styles.lowestContainer}>
-            <p className={styles.highestLowestHeader}>Your lowest scoring category:</p>
+            <p className={styles.highestLowestHeader}>One of your low scoring categories:</p>
             {lowest && worst[lowest] && (
               <>
                 <p className={styles.highestLowestTitle}>{worst[lowest].title}</p>
@@ -233,7 +245,7 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
   const content3 = (
     <div className={styles.emailContainer}>
       <h2 className={styles.emailTitle}>Keep the fun going!</h2>
-      <p>Get your results by email, with a full breakdown of your answers and find out what your results say about your relationship with play.</p>
+      <p>Get your results by email, with a full breakdown of your answers. Find out more of what your results say about your relationship with play.</p>
       <ContactInput user={user} setUser={setUser} textPlaceholder={'Email'} buttonText={'Save results'} />
     </div>
   )

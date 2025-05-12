@@ -231,12 +231,12 @@
 .subContent > ul > li {
   display: flex;
   gap: 18px;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .bullet {
   flex-shrink: 0;
-  margin-top: 5px;
+  margin-top: 6px;
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -309,6 +309,11 @@ h3 {
     gap: 12px;
   }
 
+  .bubbleText {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
   .buttonContainer:first-child > div:last-child {
     align-items: center;
   }
@@ -352,11 +357,11 @@ h3 {
   }
 
   .bubbleRow {
-    gap: 0px;
+    gap: 6px;
   }
 
   .bubbleContainer {
-    gap: 5px;
+    gap: 6px;
   }
 
   .emailTitle {

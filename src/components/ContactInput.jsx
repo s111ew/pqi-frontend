@@ -91,7 +91,7 @@ function ContactInput({ user, setUser, textPlaceholder, buttonText }) {
           </div>
         </div>
         {emailError ? <div className={`${styles.disclaimer} ${styles.errorDisclaimer}`}><img src={errorIcon} alt="tip" /><span>Please enter a valid email.</span></div> : ''}
-        <div className={styles.disclaimer}><img src={infoIcon} alt="tip" /><span>We don't share your information with others. Unsubscribe at anytime.</span></div>
+        <div className={styles.disclaimer}><img src={infoIcon} alt="tip" /><span>We won't share your information with others. Unsubscribe at anytime.</span></div>
       </div>
   );
 }
