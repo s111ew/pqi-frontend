@@ -22,11 +22,17 @@ body {
   --teal-2: rgb(144, 181, 191);
   --teal-3: rgba(2, 106, 103, 0.1);
   --social: rgb(255, 168, 118);
+  --social-open: rgba(255, 168, 118, 0.1);
   --emotional: rgb(155, 176, 239);
+  --emotional-open: rgba(155, 176, 239, 0.1);
   --physical: rgb(132, 186, 121);
+  --physical-open: rgba(132, 186, 121, 0.1);
   --playful: rgb(234, 215, 42);
+  --playful-open: rgba(234, 215, 42, 0.1);
   --cognitive: rgb(180, 133, 214);
+  --cognitive-open: rgba(180, 133, 214, 0.1);
   --systemic: rgb(251, 153, 196);
+  --systemic-open: rgba(251, 153, 196, 0.1);
   --black-1: rgb(34, 34, 34);
   --black-2: rgba(34, 34, 34, 0.7);
   --red: rgb(204, 56, 56);
@@ -52,6 +58,7 @@ body {
   background-repeat: repeat;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   overflow-x: hidden;
+  background-attachment: fixed;
 }
 
 #root {
@@ -104,12 +111,4 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
-}
-
-.disabled,
-.disabled:hover,
-.disabled:active {
-  background-color: var(--disabled) !important;
-  color: var(--disabled-text) !important;
-  box-shadow: none !important;
 }

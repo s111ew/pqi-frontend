@@ -24,7 +24,7 @@
 }
 
 .disclaimer {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 18px;
 }
 
@@ -40,7 +40,7 @@
 }
 
 .questionTextContainer > p {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 16px !important;
   color: var(--disabled-text);
 }
@@ -64,15 +64,15 @@
 
 @media only screen and (min-width: 578px) and (max-width: 994px) {
   .question {
-    padding: 16px 16px 60px 16px;
+    padding: 16px 20px 60px 20px;
     max-width: 664px;
   }
 
   .disclaimer {
-    font-size: 13px;
+    font-size: 14px;
   }
   .question > div:last-child > div:first-child > p {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 
@@ -84,9 +84,13 @@
     gap: 50px;
   }
   .disclaimer {
-    font-size: 11px;
+    font-size: 16px;
   }
   .question > div:last-child > div:first-child > p {
     font-size: 11px;
+  }
+
+  .questionText {
+    line-height: 40px;
   }
 }

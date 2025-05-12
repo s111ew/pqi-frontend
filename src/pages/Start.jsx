@@ -10,9 +10,12 @@ import shareIcon from "../assets/icons/Share.svg"
 import arrowIcon from "../assets/icons/arrowLeft.svg"
 import ButtonAlt from "../components/ButtonAlt";
 import infoIcon from "../assets/icons/Info.svg"
+import infoErrorIcon from "../assets/icons/InfoError.svg"
 
 function Start({ setShareModalVisible, setCurrentPage, setUser }) {
   const [firstName, setfirstName] = useState("");
+  const [isValidName, setIsValidName] = useState(false);
+  const [isDisclaimerErr, setIsDisclaimerErr] = useState(false);
 
   const goBack = () => {
     setCurrentPage("intro")
@@ -28,6 +31,8 @@ function Start({ setShareModalVisible, setCurrentPage, setUser }) {
     if (isValid) {
       setCurrentPage("question");
       setUser({firstName});
+    } else {
+      setIsDisclaimerErr(true);
     }
   };
 
@@ -36,14 +41,25 @@ function Start({ setShareModalVisible, setCurrentPage, setUser }) {
       <div className={styles.mainText}>
         <p>Ready, steady, go!<br />Who's taking the quiz today?</p>
         <div className={styles.inputContainer}>
-          <TextInput placeholderText="Name" value={firstName} onChange={(e) => setfirstName(e.target.value)} />
-          <div className={styles.disclaimer}><img src={infoIcon} alt="tip" /><span>Please enter your first name to continue.</span></div>
+          <TextInput placeholderText="Name" value={firstName} onChange={(e) => {
+            const name = e.target.value;
+            setfirstName(name);
+            if (/[a-z0-9]/i.test(name)) {
+              setIsValidName(true);
+              if (isDisclaimerErr) {
+                setIsDisclaimerErr(false);
+              }
+            } else {
+              setIsValidName(false);
+            }
+          }} />
+          <div className={`${styles.disclaimer} ${isDisclaimerErr ? styles.err : ''}`}><img src={isDisclaimerErr ? infoErrorIcon : infoIcon} alt="tip" /><span>Please enter your first name to continue.</span></div>
         </div>
       </div>
       <ButtonMain
         buttonText={"First question"}
         onClick={handleClick}
-        className={!isValid ? 'disabled' : ""}
+        isDisabled={isValidName ? false : true}
       />
     </>
   );
@@ -69,7 +85,7 @@ function Start({ setShareModalVisible, setCurrentPage, setUser }) {
     <main className={styles.start}>
       <div className={styles.buttonContainer}>
         <ButtonAlt isReverse={true} onClick={goBack} buttonText={'Back'} iconSrc={arrowIcon} iconAlt={'Back to previous page'}/>
-        <ButtonAlt onClick={handleShareClick} buttonText={'Share'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
+        <ButtonAlt onClick={handleShareClick} buttonText={'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
       </div>
       <ContentContainer content={mainContent} />
       <div className={styles.subContainer}>

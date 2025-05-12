@@ -1,6 +1,6 @@
 import ButtonAlt from "../components/ButtonAlt"
 import ButtonMain from "../components/ButtonMain"
-import ContentContainer from "../components/ContentContainer"
+import ContentContainerSmall from "../components/ContentContainerSmall"
 import ContactInput from "../components/ContactInput"
 import SubContent from "../components/SubContent"
 import styles from "../styles/Result.module.css"
@@ -13,6 +13,12 @@ import { useEffect, useState } from "react"
 function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
   const [lowest, setLowest] = useState();
   const [highest, setHighest] = useState();
+  const [socialIsOpen, setSocialIsOpen] = useState(false);
+  const [emotionalIsOpen, setEmotionalIsOpen] = useState(false);
+  const [physicalIsOpen, setPhysicalIsOpen] = useState(false);
+  const [playfulIsOpen, setPlayfulIsOpen] = useState(false);
+  const [cognitiveIsOpen, setCognitiveIsOpen] = useState(false);
+  const [systemicIsOpen, setSystemicIsOpen] = useState(false);
 
   const calculateHeaderText = () => {
     if (!user || !user.answers) return null;
@@ -134,12 +140,12 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
   const cognitiveWidth = `clamp(90px, ${baseSizeVW + (scores.cognitive * scaleVW)}vw, 200px)`;
   const playfulWidth = `clamp(90px, ${baseSizeVW + (scores.playful * scaleVW * 0.6)}vw, 200px)`;
 
-  const handlePageScroll = () => {
-    const section = document.getElementById("email-section");
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  // const handlePageScroll = () => {
+  //   const section = document.getElementById("email-section");
+  //   if (section) {
+  //     section.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // };
 
   const calculatePercentage = (answers) => {
     let total = 0;
@@ -150,37 +156,38 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
   }
 
   const result = (
-    <div className={`${styles.subContent} ${styles.large}`}>
-      <div className={styles.resultContainer}>
-        <div className={styles.resultIntro}>
-          <p className={styles.resultPre}>Your Play Genius Score:</p>
-          <div className={styles.numContainer}>
-            <p className={styles.resultNum}>{calculatePercentage(user.answers)}</p>
-            <p className={styles.percentage}>%</p>
+      <div className={`${styles.subContent} ${styles.large}`}>
+        <div className={styles.resultContainer}>
+          <div className={styles.resultIntro}>
+            <p className={styles.resultPre}>Your Play Genius Score:</p>
+            <div className={styles.numContainer}>
+              <p className={styles.resultNum}>{calculatePercentage(user.answers)}</p>
+              <p className={styles.percentage}>%</p>
+            </div>
+            {calculateHeaderText()}
           </div>
-          {calculateHeaderText()}
-        </div>
-        <div className={styles.resultGraphic}>
-          <p className={styles.resultPre}>Your results by categories:</p>
-          <div className={styles.bubbleContainer}>
-            <div className={styles.bubbleRow}>
-              <div className={`${styles.bubble} ${styles.social}`} style={{width: socialWidth, height: socialWidth}}><span className={styles.bubbleText}>Social<br></br>Development</span></div>
-              <div className={`${styles.bubble} ${styles.emotional}`} style={{width: emotionalWidth, height: emotionalWidth}}><span className={styles.bubbleText}>Emotional<br></br>Development</span></div>
-            </div>
-            <div className={styles.bubbleRow}>
-              <div className={`${styles.bubble} ${styles.physical}`} style={{width: physicalWidth, height: physicalWidth}}><span className={styles.bubbleText}>Physical<br></br>Development</span></div>
-              <div className={`${styles.bubble} ${styles.playful}`} style={{width: playfulWidth, height: playfulWidth}}><span className={styles.bubbleText}>Playful<br></br>Behaviours</span></div>
-              <div className={`${styles.bubble} ${styles.cognitive}`} style={{width: cognitiveWidth, height: cognitiveWidth}}><span className={styles.bubbleText}>Cognitive<br></br>Development</span></div>
-            </div>
-            <div className={styles.bubbleRow}>
-              <div className={`${styles.bubble} ${styles.systemic}`} style={{width: systemicWidth, height: systemicWidth}}><span className={styles.bubbleText}>Systemic<br></br>Development</span></div>
+          <div className={styles.resultGraphic}>
+            <p className={styles.resultPre}>Tap each category to reveal your results:</p>
+            <div className={styles.bubbleContainer}>
+              <div className={styles.bubbleRow}>
+                <div onClick={() => {socialIsOpen ? setSocialIsOpen(false) : setSocialIsOpen(true)}} className={`${styles.bubble} ${styles.social} ${socialIsOpen ? styles.socialOpen : ''}`} style={{width: socialWidth, height: socialWidth}}><span className={styles.bubbleText}>{socialIsOpen ? (`${scores.social} / 15`) : (<>Social<br></br>Development</>)}</span></div>
+                <div onClick={() => {emotionalIsOpen ? setEmotionalIsOpen(false) : setEmotionalIsOpen(true)}} className={`${styles.bubble} ${styles.emotional} ${emotionalIsOpen ? styles.emotionalOpen : ''}`} style={{width: emotionalWidth, height: emotionalWidth}}><span className={styles.bubbleText}>{emotionalIsOpen ? (`${scores.emotional} / 15`) : (<>Emotional<br></br>Development</>)}</span></div>
+              </div>
+              <div className={styles.bubbleRow}>
+                <div onClick={() => {physicalIsOpen ? setPhysicalIsOpen(false) : setPhysicalIsOpen(true)}} className={`${styles.bubble} ${styles.physical} ${physicalIsOpen ? styles.physicalOpen : ''}`} style={{width: physicalWidth, height: physicalWidth}}><span className={styles.bubbleText}>{physicalIsOpen ? (`${scores.physical} / 15`) : (<>Physical<br></br>Development</>)}</span></div>
+                <div onClick={() => {playfulIsOpen ? setPlayfulIsOpen(false) : setPlayfulIsOpen(true)}} className={`${styles.bubble} ${styles.playful} ${playfulIsOpen ? styles.playfulOpen : ''}`} style={{width: playfulWidth, height: playfulWidth}}><span className={styles.bubbleText}>{playfulIsOpen ? (`${scores.playful} / 25`) : (<>Playful<br></br>Behaviours</>)}</span></div>
+                <div onClick={() => {cognitiveIsOpen ? setCognitiveIsOpen(false) : setCognitiveIsOpen(true)}} className={`${styles.bubble} ${styles.cognitive} ${cognitiveIsOpen ? styles.cognitiveOpen : ''}`} style={{width: cognitiveWidth, height: cognitiveWidth}}><span className={styles.bubbleText}>{cognitiveIsOpen ? (`${scores.cognitive} / 15`) : (<>Cognitive<br></br>Development</>)}</span></div>
+              </div>
+              <div className={styles.bubbleRow}>
+                <div onClick={() => {systemicIsOpen ? setSystemicIsOpen(false) : setSystemicIsOpen(true)}} className={`${styles.bubble} ${styles.systemic} ${systemicIsOpen ? styles.systemicOpen : ''}`} style={{width: systemicWidth, height: systemicWidth}}><span className={styles.bubbleText}>{systemicIsOpen ? (`${scores.systemic} / 15`) : (<>Systemic<br></br>Development</>)}</span></div>
+              </div>
             </div>
           </div>
-        </div>
-        <div className={styles.highestLowest}>
-          <div className={styles.highestContainer}>
-            <p className={styles.highestLowestHeader}>Your highest scoring category:</p>
-            {highest && best[highest] && (
+      </div>
+    <div className={styles.highestLowest}>
+      <div className={styles.highestContainer}>
+        <p className={styles.highestLowestHeader}>Your highest scoring category:</p>
+          {highest && best[highest] && (
             <>
               <p className={styles.highestLowestTitle}>{best[highest].title}</p>
               <p className={styles.highestLowestBody}>{best[highest].body}</p>
@@ -195,15 +202,13 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
                 <p className={styles.highestLowestBody}>{worst[lowest].body}</p>
               </>
             )}
-          </div>
-        </div>
       </div>
-      <div id="email-section"></div>
+    </div>
     </div>
   )
 
   const content1 = (
-    <div className={styles.subContent}>
+    <div className={`${styles.subContent} ${styles.margin}`}>
       <h3>Ways to play with your result:</h3>
       <p>You may wish to set an intention to be more playful going forward... Choose to focus on a particular area of development such as physical development. Come up with ideas and pick one to try.</p>
       <p>We recommend taking this quiz regularly help you keep track of and expand your play intelligence the way you want to.</p>
@@ -212,7 +217,7 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
   )
 
   const content2 = (
-    <div className={styles.subContent}>
+    <div className={`${styles.subContent} ${styles.margin}`}>
       <h3>How can I develop my Play Genius?</h3>
       <p>It is through play alchemy that we can enable transformational change that is fun, effective and efficient - at work, at home and anywhere we go.</p>
       <p>Incorporate Play Alchemy into your daily life to grow as a leader and a playmaker:</p>
@@ -228,7 +233,7 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
   const content3 = (
     <div className={styles.emailContainer}>
       <h2 className={styles.emailTitle}>Keep the fun going!</h2>
-      <p>Get your results by email, and find out what your results say about you and your relationship with play.</p>
+      <p>Get your results by email, with a full breakdown of your answers and find out what your results say about your relationship with play.</p>
       <ContactInput user={user} setUser={setUser} textPlaceholder={'Email'} buttonText={'Save results'} />
     </div>
   )
@@ -257,26 +262,15 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
     </div>
   )
 
-  const content6 = (
-    <div className={`${styles.subContent} ${styles.large} ${styles.playAgainContainer}`}>
-      <h3>Retake the quiz</h3>
-      <p>Taking the Play Genius Quiz regularly helps to track your growing relationship with play</p>
-      <div className={`${styles.buttonContainer} ${styles.singleButton}`}>
-        <ButtonMain onClick={resetQuiz} buttonText={"Retake the Play Genius Quiz"} />
-      </div>
-    </div>
-  )
-
   return(
     <main className={styles.result}>
       <div className={styles.buttonContainer}>
-        <ButtonMain onClick={handlePageScroll} buttonText={'Save your results'} iconSrc={tipIcon} iconAlt={'save your results'} isOuter={true}/>
+        <ButtonMain onClick={resetQuiz} buttonText={'Retake quiz'} iconSrc={tipIcon} iconAlt={'save your results'} isOuter={true}/>
         <ButtonAlt onClick={handleClick} buttonText={'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
       </div>
       <div className={styles.content}>
         <SubContent content={result}/>
-        <ContentContainer content={content3}/>
-        <SubContent content={content6}/>
+        <ContentContainerSmall content={content3}/>
         <div className={styles.subContainer}>
           <SubContent content={content1}/>
           <SubContent content={content2}/>

@@ -24,7 +24,7 @@ function Intro({ setCurrentPage, setShareModalVisible }) {
     <>
       <div className={styles.mainText}>
         <h1>Play Genius Quiz</h1>
-        <p>Explore your relationship with true play to reclaim your gifts. Opt-in for tips to reconnect with your greatest superpower.</p>
+        <p>Explore your relationship with true play. Opt-in for tips to reconnect with your greatest superpower.</p>
       </div>
       <ButtonMain buttonText={'Let the games begin!'} onClick={onClick}/>
     </>
@@ -59,12 +59,12 @@ function Intro({ setCurrentPage, setShareModalVisible }) {
     <main className={styles.intro}>
       <div className={styles.buttonContainer}>
         <ButtonAlt isReverse={true} onClick={goToSop} buttonText={'The School of Play'} iconSrc={arrowIcon} iconAlt={'Back to The School of Play'}/>
-        <ButtonAlt onClick={handleShareClick} buttonText={'Share'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
+        <ButtonAlt onClick={handleShareClick} buttonText={'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
       </div>
       <ContentContainer content={mainContent}/>
       <div className={styles.subContainer}>
-        <SubContent content={subContent1}/>
         <SubContent content={subContent2}/>
+        <SubContent content={subContent1}/>
       </div>
     </main>
   )

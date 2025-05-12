@@ -33,6 +33,14 @@
   height: 24px;
 }
 
+.disabled,
+.disabled:hover,
+.disabled:active {
+  background-color: var(--disabled) !important;
+  color: var(--disabled-text) !important;
+  box-shadow: none !important;
+}
+
 @media only screen and (max-width: 578px) {
   .outer {
     padding: 16px 20px;

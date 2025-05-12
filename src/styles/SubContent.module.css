@@ -16,3 +16,10 @@
     gap: 32px;
   }
 }
+
+@media only screen and (max-width: 579px) {
+  .container {
+    padding: 40px 30px;
+    gap: 32px;
+  }
+}

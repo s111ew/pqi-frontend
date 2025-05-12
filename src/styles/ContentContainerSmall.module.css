@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 171px; */
+  padding: 80px 204px;
+  background-color: var(--white-1);
+  border-radius: 50px;
+  border: 4px solid var(--white-4);
+  box-shadow: var(--box-shadow-main);
+  width: 100%;
+}
+
+@media only screen and (max-width: 994px) and (min-width: 579px) {
+  .container {
+    padding: 128px 107px;
+  }
+}
+
+@media only screen and (max-width: 578px) {
+  .container {
+    padding: 72px 30px;
+  }
+}

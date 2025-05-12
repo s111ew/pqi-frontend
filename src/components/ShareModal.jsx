@@ -1,4 +1,4 @@
-import ContentContainer from "./ContentContainer"
+import ContentContainerSmall from "./ContentContainerSmall"
 import styles from "../styles/ShareModal.module.css"
 import { useState, useEffect, useRef } from "react";
 import tipIcon from "../assets/icons/Info.svg"
@@ -63,10 +63,12 @@ function ShareModal({ setShareModalVisible }) {
 
   return (
     <div className={styles.background}>
-      <div className={styles.shareModal}>
-        <div className={styles.closeButton}><img src={close} alt="close" /></div>
-        <div ref={containerRef}>
-          <ContentContainer content={content} />
+      <div className={styles.stickyContainer}>
+        <div className={styles.shareModal}>
+          <div className={styles.closeButton}><img src={close} alt="close" /></div>
+          <div ref={containerRef}>
+            <ContentContainerSmall content={content} />
+          </div>
         </div>
       </div>
     </div>

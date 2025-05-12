@@ -27,14 +27,15 @@
 }
 
 .mainText > p {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-family: "Helvetica Neue Semi", Helvetica, Arial, sans-serif;
+  font-size: 16px;
   line-height: 20px;
   text-align: center;
+  font-weight: 500;
 }
 
 .subContainer {
-  font-size: 14px;
+  font-size: 16px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
@@ -45,8 +46,9 @@
   font-family: "Helvetica Neue Semi", Helvetica, Arial, sans-serif;
   text-align: center;
   color: var(--teal-1);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
+  font-weight: 500;
 }
 
 .subContainerText {
@@ -64,6 +66,10 @@
   align-items: center;
   color: var(--disabled-text);
   align-self: flex-start;
+}
+
+.disclaimer.err {
+  color: var(--red) !important;
 }
 
 /* --- Tablet: 579px to 994px --- */
@@ -90,7 +96,7 @@
   }
 
   .disclaimer {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .mainText {
@@ -98,11 +104,12 @@
   }
 
   .mainText > p {
-    font-size: 13px;
+    font-size: 16px;
     line-height: 18px;
   }
 
   .subContainerTitle {
-    font-size: 13px;
+    font-size: 16px;
+    line-height: 20px;
   }
 }

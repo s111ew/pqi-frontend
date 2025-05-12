@@ -6,6 +6,7 @@
   align-items: center;
   padding: 16px 0px 94px 0px;
   max-width: 874px;
+  position: relative;
 }
 
 .buttonContainer {
@@ -13,6 +14,8 @@
   display: flex;
   justify-content: space-between;
   height: 50px;
+  top: 16px;
+  position: sticky;
 }
 
 .resultContainer {
@@ -29,7 +32,7 @@
 }
 
 .resultPre {
-  font-size: 14px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
@@ -96,28 +99,56 @@
   flex-shrink: 1;
 }
 
+.bubble:hover {
+  cursor: pointer;
+}
+
 .social {
   background-color: var(--social);
+}
+.socialOpen {
+  border: 2px dashed var(--social);
+  background-color: var(--social-open);
 }
 .emotional {
   background-color: var(--emotional);
 }
+.emotionalOpen {
+  border: 2px dashed var(--emotional);
+  background-color: var(--emotional-open);
+}
 .physical {
   background-color: var(--physical);
+}
+.physicalOpen {
+  border: 2px dashed var(--physical);
+  background-color: var(--physical-open);
 }
 .playful {
   background-color: var(--playful);
 }
+.playfulOpen {
+  border: 2px dashed var(--playful);
+  background-color: var(--playful-open);
+}
 .cognitive {
   background-color: var(--cognitive);
+}
+.cognitiveOpen {
+  border: 2px dashed var(--cognitive);
+  background-color: var(--cognitive-open);
 }
 .systemic {
   background-color: var(--systemic);
 }
+.systemicOpen {
+  border: 2px dashed var(--systemic);
+  background-color: var(--systemic-open);
+}
 
 .bubbleText {
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 16px;
@@ -127,7 +158,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 80px;
+  margin-top: 80px;
 }
 
 .highestContainer,
@@ -139,7 +171,7 @@
 }
 
 .highestLowestHeader {
-  font-size: 14px;
+  font-size: 16px;
   font-style: normal;
   font-family: "Helvetica Neue Semi", Helvetica, Arial, sans-serif;
   line-height: 20px;
@@ -148,7 +180,7 @@
 
 .highestLowestTitle {
   font-family: "Helvetica Neue Semi", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-style: normal;
   line-height: 20px;
 }
@@ -175,13 +207,16 @@
   flex-direction: column;
   gap: 18px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .subContent > h3 {
   font-weight: 500;
   color: var(--teal-1);
   text-align: center;
+}
+
+.margin > h3 {
   margin-bottom: 18px;
 }
 
@@ -214,7 +249,7 @@
   gap: 36px;
   text-align: center;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 18px;
 }
 
@@ -227,14 +262,6 @@
   line-height: 45px;
 }
 
-.disclaimer {
-  margin-top: 16px;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  color: var(--disabled-text);
-}
-
 .headshot {
   width: 200px;
   height: 178px;
@@ -243,7 +270,7 @@
 
 h3 {
   font-family: "Helvetica Neue Semi", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-style: normal;
   line-height: 20px;
 }
@@ -251,7 +278,7 @@ h3 {
 .bold {
   text-align: center;
   font-family: "Helvetica Neue Semi", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-style: normal;
   line-height: 20px;
 }
@@ -263,7 +290,7 @@ h3 {
 }
 
 .playAgainContainer > p {
-  text-align: center;
+  text-align: flex-start;
 }
 
 .singleButton {
@@ -289,11 +316,11 @@ h3 {
   .subContainer {
     width: 100%;
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 36px;
   }
 
   .large {
-    padding: 20px 75px;
+    padding: 20px 0px;
   }
 
   .content > section:last-child {
@@ -308,7 +335,7 @@ h3 {
   }
 
   .large {
-    padding: 0px;
+    padding: 20px 0px;
   }
 
   .content > section:first-child {
@@ -320,7 +347,8 @@ h3 {
   }
 
   .bubbleText {
-    font-size: 10px;
+    font-size: 12px;
+    line-height: 14px;
   }
 
   .bubbleRow {
@@ -329,5 +357,15 @@ h3 {
 
   .bubbleContainer {
     gap: 5px;
+  }
+
+  .emailTitle {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .highestLowest {
+    gap: 40px;
+    margin-top: 40px;
   }
 }
