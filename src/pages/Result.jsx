@@ -170,16 +170,16 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
             <p className={styles.resultPre}>Tap each category to reveal your results:</p>
             <div className={styles.bubbleContainer}>
               <div className={styles.bubbleRow}>
-                <div onClick={() => {socialIsOpen ? setSocialIsOpen(false) : setSocialIsOpen(true)}} className={`${styles.bubble} ${styles.social} ${socialIsOpen ? styles.socialOpen : ''}`} style={{width: socialWidth, height: socialWidth}}><span className={styles.bubbleText}>{socialIsOpen ? (`${scores.social} / 15`) : (<>Social<br></br>Development</>)}</span></div>
-                <div onClick={() => {emotionalIsOpen ? setEmotionalIsOpen(false) : setEmotionalIsOpen(true)}} className={`${styles.bubble} ${styles.emotional} ${emotionalIsOpen ? styles.emotionalOpen : ''}`} style={{width: emotionalWidth, height: emotionalWidth}}><span className={styles.bubbleText}>{emotionalIsOpen ? (`${scores.emotional} / 15`) : (<>Emotional<br></br>Development</>)}</span></div>
-              </div>
-              <div className={styles.bubbleRow}>
                 <div onClick={() => {physicalIsOpen ? setPhysicalIsOpen(false) : setPhysicalIsOpen(true)}} className={`${styles.bubble} ${styles.physical} ${physicalIsOpen ? styles.physicalOpen : ''}`} style={{width: physicalWidth, height: physicalWidth}}><span className={styles.bubbleText}>{physicalIsOpen ? (`${scores.physical} / 15`) : (<>Physical<br></br>Development</>)}</span></div>
-                <div onClick={() => {playfulIsOpen ? setPlayfulIsOpen(false) : setPlayfulIsOpen(true)}} className={`${styles.bubble} ${styles.playful} ${playfulIsOpen ? styles.playfulOpen : ''}`} style={{width: playfulWidth, height: playfulWidth}}><span className={styles.bubbleText}>{playfulIsOpen ? (`${scores.playful} / 25`) : (<>Playful<br></br>Behaviours</>)}</span></div>
                 <div onClick={() => {cognitiveIsOpen ? setCognitiveIsOpen(false) : setCognitiveIsOpen(true)}} className={`${styles.bubble} ${styles.cognitive} ${cognitiveIsOpen ? styles.cognitiveOpen : ''}`} style={{width: cognitiveWidth, height: cognitiveWidth}}><span className={styles.bubbleText}>{cognitiveIsOpen ? (`${scores.cognitive} / 15`) : (<>Cognitive<br></br>Development</>)}</span></div>
               </div>
               <div className={styles.bubbleRow}>
+                <div onClick={() => {socialIsOpen ? setSocialIsOpen(false) : setSocialIsOpen(true)}} className={`${styles.bubble} ${styles.social} ${socialIsOpen ? styles.socialOpen : ''}`} style={{width: socialWidth, height: socialWidth}}><span className={styles.bubbleText}>{socialIsOpen ? (`${scores.social} / 15`) : (<>Social<br></br>Development</>)}</span></div>
+                <div onClick={() => {emotionalIsOpen ? setEmotionalIsOpen(false) : setEmotionalIsOpen(true)}} className={`${styles.bubble} ${styles.emotional} ${emotionalIsOpen ? styles.emotionalOpen : ''}`} style={{width: emotionalWidth, height: emotionalWidth}}><span className={styles.bubbleText}>{emotionalIsOpen ? (`${scores.emotional} / 15`) : (<>Emotional<br></br>Development</>)}</span></div>
                 <div onClick={() => {systemicIsOpen ? setSystemicIsOpen(false) : setSystemicIsOpen(true)}} className={`${styles.bubble} ${styles.systemic} ${systemicIsOpen ? styles.systemicOpen : ''}`} style={{width: systemicWidth, height: systemicWidth}}><span className={styles.bubbleText}>{systemicIsOpen ? (`${scores.systemic} / 15`) : (<>Systemic<br></br>Development</>)}</span></div>
+              </div>
+              <div className={styles.bubbleRow}>
+                <div onClick={() => {playfulIsOpen ? setPlayfulIsOpen(false) : setPlayfulIsOpen(true)}} className={`${styles.bubble} ${styles.playful} ${playfulIsOpen ? styles.playfulOpen : ''}`} style={{width: playfulWidth, height: playfulWidth}}><span className={styles.bubbleText}>{playfulIsOpen ? (`${scores.playful} / 25`) : (<>Playful<br></br>Behaviours</>)}</span></div>
               </div>
             </div>
           </div>
