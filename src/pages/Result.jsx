@@ -20,6 +20,8 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
   const [cognitiveIsOpen, setCognitiveIsOpen] = useState(false);
   const [systemicIsOpen, setSystemicIsOpen] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [isMax, setIsMax] = useState(false);
+  const [isMin, setIsMin] = useState(false);
 
 
   useEffect(() => {
@@ -58,8 +60,18 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
       const { topCategory, bottomCategory } = getTopAndBottomCategories(user);
       setHighest(topCategory);
       setLowest(bottomCategory);
+      checkMinMax(user.answers);
     }
   }, [user]);
+
+  function checkMinMax(answers) {
+    const total = calculatePercentage(answers)
+    if (total === 100) {
+      setIsMax(true);
+    } else if (total === 20) {
+      setIsMin(true);
+    }
+  }
 
   function getTopAndBottomCategories(data) {
     const scores = {};
@@ -197,7 +209,8 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
           </div>
       </div>
     <div className={styles.highestLowest}>
-      <div className={styles.highestContainer}>
+      { !isMax && !isMin ? (
+        <><div className={styles.highestContainer}>
         <p className={styles.highestLowestHeader}>One of your high scoring categories:</p>
           {highest && best[highest] && (
             <>
@@ -207,15 +220,17 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
           )}
           </div>
           <div className={styles.lowestContainer}>
-            <p className={styles.highestLowestHeader}>One of your low scoring categories:</p>
-            {lowest && worst[lowest] && (
-              <>
-                <p className={styles.highestLowestTitle}>{worst[lowest].title}</p>
-                <p className={styles.highestLowestBody}>{worst[lowest].body}</p>
-              </>
-            )}
+          <p className={styles.highestLowestHeader}>One of your low scoring categories:</p>
+          {lowest && worst[lowest] && (
+            <>
+              <p className={styles.highestLowestTitle}>{worst[lowest].title}</p>
+              <p className={styles.highestLowestBody}>{worst[lowest].body}</p>
+            </>
+          )}
+        </div></>) : ''}
+        {isMax ? (<p>{best['max'].body}</p>) : ''}
+        {isMin ? (<p>{worst['min'].body}</p>) : ''}
       </div>
-    </div>
     </div>
   )
 

@@ -23,6 +23,10 @@ export const best = {
     title: "Playful Behaviours",
     body: "In what other ways can you embody these play values to bring you more joy? How can you inspire others to apply these values to their daily life to co-create a better environment for all? What is the most resourcing way to combine this play strength with another?",
   },
+  max: {
+    title: "",
+    body: "If you feel like you play plenty and reap many of its benefits already, how about exploring the dance partners of play such as work, rest, diet and sleep? Together, these complete the five elements that enable each of us to nurture our play potential and have fun doing it.",
+  },
 };
 
 export const worst = {
@@ -49,5 +53,9 @@ export const worst = {
   playful: {
     title: "Playful Behaviours",
     body: "How about playing with some limiting beliefs you might have about being resourceful, responsible, respectful, resilient and real? What if you could transmute them into play blessings for yourself? 'May I be resourceful... May I be responsible...' Notice what begins to happen when you do this.",
+  },
+  min: {
+    title: "",
+    body: "Even though play may not yet be one of your strengths, each of us have play potential. Under which circumstances do you feel most playful? And what about situations that make play impossible? How about choosing one of the six areas of play you feel most drawn to and begin nurturing your play intelligence today?",
   },
 };
