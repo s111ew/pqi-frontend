@@ -6,9 +6,16 @@ import qrCode from "../assets/qrCode2.png"
 import close from "../assets/icons/X.svg"
 
 function ShareModal({ setShareModalVisible }) {
-  const linkText = "https://quiz.theschoolofplay.org";
   const [copied, setCopied] = useState(false);
   const containerRef = useRef(null);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const linkText = screenWidth < 579 ? "quiz.theschoolofplay.org" : "https://quiz.theschoolofplay.org";
+
+  useEffect(() => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleClick = () => {
     setCopied(true);
@@ -45,7 +52,7 @@ function ShareModal({ setShareModalVisible }) {
     <div className={styles.content}>
       <div className={styles.textContainer}>
         <h3>Share the fun!</h3>
-        <p>Scan the code below or copy the link to let others discover their play genius.</p>
+        <p>Encourage your friends and colleagues to discover their play genius by scanning the code below or copying the link.</p>
       </div>
       <div className={styles.qrCode}>
         <img src={qrCode} alt="QR code" />

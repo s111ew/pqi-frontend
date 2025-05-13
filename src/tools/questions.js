@@ -36,7 +36,7 @@ const questions = [
     category: "social",
   },
   {
-    question: "I am emotionally self aware",
+    question: "I am emotionally self-aware",
     category: "emotional",
   },
   {

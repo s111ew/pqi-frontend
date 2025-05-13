@@ -48,6 +48,6 @@ export const worst = {
   },
   playful: {
     title: "Playful Behaviours",
-    body: "How about playing with some limiting beliefs you might have about your 5Rs: Resourceful, Responsible, Respectful, Resilient and Real? What if you could turn the 5Rs into play blessings for yourself and / or others? 'May I be resourceful... May I be responsible...' Notice what begins to happen when you do this.",
+    body: "How about playing with some limiting beliefs you might have about being resourceful, responsible, respectful, resilient and real? What if you could transmute them into play blessings for yourself? 'May I be resourceful... May I be responsible...' Notice what begins to happen when you do this.",
   },
 };

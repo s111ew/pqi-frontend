@@ -30,6 +30,10 @@
 
 .whiteText {
   color: var(--white-1) !important;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .questionTextContainer {
@@ -89,8 +93,11 @@
   .question > div:last-child > div:first-child > p {
     font-size: 11px;
   }
-
   .questionText {
     line-height: 40px;
+    font-size: 32px;
+  }
+  .questionTextContainer {
+    margin-top: -50px;
   }
 }

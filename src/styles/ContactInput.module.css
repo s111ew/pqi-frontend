@@ -3,15 +3,26 @@
   width: 100%;
 }
 
-.input {
+.inputBorder {
   width: 100%;
   padding: 21px 25px;
   border: 2px dashed var(--orange-2);
   border-radius: 50px;
+  display: flex;
+}
+
+.input {
+  width: 62%;
+  border: none;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .input:focus {
+  border: none;
+  outline: none;
+}
+
+.inputBorder:focus-within {
   border: 2px solid var(--orange-2);
   border-color: var(--orange-2);
   outline: var(--orange-2);
@@ -21,7 +32,7 @@
   border: 2px dashed var(--red) !important;
 }
 
-.error:focus {
+.error:focus-within {
   border: 2px solid var(--red) !important;
   border-color: var(--red);
   outline: var(--red);
@@ -30,7 +41,7 @@
 .inputButton {
   position: absolute;
   right: 9px;
-  top: 7px;
+  top: 8px;
   color: var(--black-1);
   padding: 16px 28px;
   border-radius: 50px;

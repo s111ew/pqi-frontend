@@ -16,6 +16,7 @@
   height: 50px;
   top: 16px;
   position: sticky;
+  z-index: 100;
 }
 
 .resultContainer {
@@ -146,6 +147,16 @@
   background-color: var(--systemic-open);
 }
 
+.physicalOpen > span,
+.cognitiveOpen > span,
+.socialOpen > span,
+.emotionalOpen > span,
+.systemicOpen > span,
+.playfulOpen > span {
+  font-family: "Merriweather";
+  font-size: 18px;
+}
+
 .bubbleText {
   text-align: center;
   font-size: 16px;
@@ -223,7 +234,7 @@
 .subContent > ul {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 8px;
   list-style: none;
   padding: 0px;
 }
@@ -244,6 +255,7 @@
 }
 
 .emailContainer {
+  padding: 80px 204px;
   display: flex;
   flex-direction: column;
   gap: 36px;
@@ -283,6 +295,10 @@ h3 {
   line-height: 20px;
 }
 
+.leftAlign {
+  text-align: start;
+}
+
 .getInTouchContainer,
 .moreInfoContainer,
 .playAgainContainer {
@@ -318,6 +334,9 @@ h3 {
     align-items: center;
   }
 
+  .emailContainer {
+    padding: 80px 107px;
+  }
   .subContainer {
     width: 100%;
     grid-template-columns: 1fr;
@@ -367,6 +386,10 @@ h3 {
   .emailTitle {
     font-size: 24px;
     line-height: 32px;
+  }
+
+  .emailContainer {
+    padding: 72px 30px;
   }
 
   .highestLowest {

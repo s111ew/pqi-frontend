@@ -142,7 +142,7 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
   const scaleVW = 0.8; // each score point adds this much VW
 
   const socialWidth = `clamp(90px, ${baseSizeVW + (scores.social * scaleVW)}vw, 200px)`;
-  const emotionalWidth = `clamp(80px, ${baseSizeVW + (scores.emotional * scaleVW)}vw, 200px)`;
+  const emotionalWidth = `clamp(90px, ${baseSizeVW + (scores.emotional * scaleVW)}vw, 200px)`;
   const physicalWidth = `clamp(90px, ${baseSizeVW + (scores.physical * scaleVW)}vw, 200px)`;
   const systemicWidth = `clamp(90px, ${baseSizeVW + (scores.systemic * scaleVW)}vw, 200px)`;
   const cognitiveWidth = `clamp(90px, ${baseSizeVW + (scores.cognitive * scaleVW)}vw, 200px)`;
@@ -223,7 +223,7 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
     <div className={`${styles.subContent} ${styles.margin}`}>
       <h3>Ways to play with your result:</h3>
       <p>You may wish to set an intention to be more playful going forward... Choose to focus on a particular area of development such as physical development. Come up with ideas and pick one to try.</p>
-      <p>We recommend taking this quiz regularly help you keep track of and expand your play intelligence the way you want to.</p>
+      <p>We recommend taking this quiz regularly to help you keep track of and expand your play intelligence the way you want to.</p>
       <p>Past participants have said this can lead to remarkable results!</p>
     </div>
   )
@@ -231,13 +231,17 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
   const content2 = (
     <div className={`${styles.subContent} ${styles.margin}`}>
       <h3>How can I develop my Play Genius?</h3>
-      <p>It is through play alchemy that we can enable transformational change that is fun, effective and efficient - at work, at home and anywhere we go.</p>
-      <p>Incorporate Play Alchemy into your daily life to grow as a leader and a playmaker:</p>
+      <p className={`${styles.bold} ${styles.leftAlign}`}>In life:</p>
       <ul>
-        <li><div className={styles.bullet}></div><span>Restore, nourish and nurture your playful self</span></li>
-        <li><div className={styles.bullet}></div><span>Expand your emotional range and capacity for joy</span></li>
-        <li><div className={styles.bullet}></div><span>Navigate life's challenges with equanimity and verve</span></li>
-        <li><div className={styles.bullet}></div><span>Enable transformational change &#40;in yourself as well as those you serve	&#41; and have fun doing it.</span></li>
+        <li><div className={styles.bullet}></div><span>Think back to how you liked to play most as a child.</span></li>
+        <li><div className={styles.bullet}></div><span>What would bring you most joy now as an adult?</span></li>
+        <li><div className={styles.bullet}></div><span>Name at least one seemingly impossible dream.</span></li>
+      </ul>
+      <p className={`${styles.bold} ${styles.leftAlign}`}>At work:</p>
+      <ul>
+        <li><div className={styles.bullet}></div><span>Which area of play can you strengthen among colleagues?</span></li>
+        <li><div className={styles.bullet}></div><span>How can you change your workplace for the better?</span></li>
+        <li><div className={styles.bullet}></div><span>How could you have more fun at work?</span></li>
       </ul>
     </div>
   )
@@ -246,17 +250,17 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
     <div className={styles.emailContainer}>
       <h2 className={styles.emailTitle}>Keep the fun going!</h2>
       <p>Get your results by email, with a full breakdown of your answers. Find out more of what your results say about your relationship with play.</p>
-      <ContactInput user={user} setUser={setUser} textPlaceholder={'Email'} buttonText={'Save results'} />
+      <ContactInput user={user} setUser={setUser} textPlaceholder={'Email'} buttonText={screenWidth < 579 ? 'Save' : 'Save results'} />
     </div>
   )
 
   const content4 = (
     <div className={`${styles.subContent} ${styles.large} ${styles.getInTouchContainer}`}>
-      <h3>Meet the Play Alchemist</h3>
+      <h3>Meet The Play Alchemist</h3>
       <img className={styles.headshot} src={headshot} alt="Portia Tung" />
-      <p>Portia is an Executive & Agile Coach and a Systemic Constellations Facilitator. She is dedicated to promoting happier adulthood through lifelong play.</p>
-      <p>Based on Portia's 20+ years in enabling change in organisations and with individuals, it is through play alchemy that we can enable transformational change that is fun, effective and efficient - at work, at home and anywhere we go.</p>
-      <p className={styles.bold}>Book a free discovery session with Portia to uncover the possibilities of Playful Leadership</p>
+      <p>Portia Tung is an organisational leadership coach, play researcher and Agile coach. She is dedicated to promoting happier adulthood through lifelong play.</p>
+      <p>With 20+ years in enabling transformational change, Portia helps leaders and teams solve complex challenges while making work more enjoyable, effective and efficient.</p>
+      <p className={styles.bold}>Book a free discovery session with Portia to explore ways to unlock human potential in your organisation and have fun doing it.</p>
       <div className={`${styles.buttonContainer} ${styles.singleButton}`}>
         <ButtonMain onClick={goToChat} buttonText={"Let's chat!"} />
       </div>
@@ -265,8 +269,8 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
 
   const content5 = (
     <div className={`${styles.subContent} ${styles.large} ${styles.moreInfoContainer}`}>
-      <h3>More about the School of Play</h3>
-      <p>We at The School of Play cordially invite you to reconnect with your playful self - the most powerful resource you have - for living more of the life you dream of. </p>
+      <h3>More about The School of Play</h3>
+      <p>We at The School of Play cordially invite you and your organisation to reconnect with your greatest superpower to co-create positive organisational change.</p>
       <div className={styles.buttonContainer}>
         <ButtonMain onClick={goToCoaching} buttonText={"Explore coaching"} />
         <ButtonMain onClick={goToCourses} buttonText={"Browse courses"} />
@@ -278,7 +282,7 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
     <main className={styles.result}>
       <div className={styles.buttonContainer}>
         <ButtonMain onClick={resetQuiz} buttonText={'Retake quiz'} iconSrc={tipIcon} iconAlt={'save your results'} isOuter={true}/>
-        <ButtonAlt onClick={handleClick} buttonText={'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
+        <ButtonAlt onClick={handleClick} buttonText={screenWidth < 579 ? 'Share' : 'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
       </div>
       <div className={styles.content}>
         <SubContent content={result}/>

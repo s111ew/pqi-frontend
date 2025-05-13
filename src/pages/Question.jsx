@@ -4,17 +4,24 @@ import ProgressBar from "../components/ProgressBar";
 import Radios from "../components/Radios";
 import styles from "../styles/Question.module.css"
 import questions from "../tools/questions.js"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import shareIcon from "../assets/icons/Share.svg"
 import arrowIcon from "../assets/icons/arrowLeft.svg"
 
 function Question({ setShareModalVisible, setCurrentPage, user, setUser }) {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [currentIndex, setCurrentIndex] = useState(() => {
-  if (user && Array.isArray(user.answers)) {
-    return user.answers.length;
-  }
-  return 0;
-});
+    if (user && Array.isArray(user.answers)) {
+      return user.answers.length;
+    }
+    return 0;
+  });
+
+  useEffect(() => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleShareClick = () => {
     setShareModalVisible(true);
@@ -75,7 +82,7 @@ function Question({ setShareModalVisible, setCurrentPage, user, setUser }) {
 
   const mainContent = (
     <>
-      <p className={`${styles.disclaimer} ${currentIndex !== 0 ? styles.whiteText : ''}`}>For each statement, choose the answer that best reflects how you are in reality, not as you should or would like to behave.</p>
+      <p className={`${styles.disclaimer} ${currentIndex !== 0 ? styles.whiteText : ''}`}>For each statement, choose the answer that best reflects how you are in reality, not as you should or would like to be.</p>
       <div className={styles.questionTextContainer}>
       <p>{`${currentIndex + 1} of ${questions.length}`}</p>
         <h2 className={styles.questionText}>{questions[currentIndex].question}</h2>
@@ -88,7 +95,7 @@ function Question({ setShareModalVisible, setCurrentPage, user, setUser }) {
     <main className={styles.question}>
       <div className={styles.buttonContainer}>
         <ButtonAlt isReverse={true} onClick={handlePrevious} buttonText={currentIndex === 0 ? "Back" : "Previous question"} iconSrc={arrowIcon} iconAlt={'Back to previous page'}/>
-        <ButtonAlt onClick={handleShareClick} buttonText={'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
+        <ButtonAlt onClick={handleShareClick} buttonText={screenWidth < 579 ? 'Share' : 'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
       </div>
       <ContentContainer isQuestion={true} content={mainContent}/>
       <div className={styles.progress}>

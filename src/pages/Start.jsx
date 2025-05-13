@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "../styles/Start.module.css";
 import SubContent from "../components/SubContent";
 import ContentContainer from "../components/ContentContainer";
@@ -16,6 +16,13 @@ function Start({ setShareModalVisible, setCurrentPage, setUser }) {
   const [firstName, setfirstName] = useState("");
   const [isValidName, setIsValidName] = useState(false);
   const [isDisclaimerErr, setIsDisclaimerErr] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const goBack = () => {
     setCurrentPage("intro")
@@ -85,7 +92,7 @@ function Start({ setShareModalVisible, setCurrentPage, setUser }) {
     <main className={styles.start}>
       <div className={styles.buttonContainer}>
         <ButtonAlt isReverse={true} onClick={goBack} buttonText={'Back'} iconSrc={arrowIcon} iconAlt={'Back to previous page'}/>
-        <ButtonAlt onClick={handleShareClick} buttonText={'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
+        <ButtonAlt onClick={handleShareClick} buttonText={screenWidth < 579 ? 'Share' : 'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
       </div>
       <ContentContainer content={mainContent} />
       <div className={styles.subContainer}>
