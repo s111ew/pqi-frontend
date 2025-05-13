@@ -2,6 +2,7 @@ import './App.css'
 import Intro from './pages/Intro'
 import Start from './pages/Start'
 import Question from './pages/Question'
+import Loading from './pages/Loading'
 import Result from './pages/Result'
 import { useState, useEffect } from 'react'
 import useLocalStorageUser from './tools/useLocalStorageUser.js'
@@ -36,6 +37,7 @@ function App() {
       {currentPage === 'intro' && <Intro setCurrentPage={setCurrentPage} setShareModalVisible={setShareModalVisible} />}
       {currentPage === 'start' && <Start setCurrentPage={setCurrentPage} setShareModalVisible={setShareModalVisible} user={user} setUser={setUser} />}
       {currentPage === 'question' && <Question setCurrentPage={setCurrentPage} setShareModalVisible={setShareModalVisible} user={user} setUser={setUser} />}
+      {currentPage === 'loading' && <Loading setCurrentPage={setCurrentPage} setShareModalVisible={setShareModalVisible} />}
       {currentPage === 'result' && <Result setCurrentPage={setCurrentPage} user={user} setUser={setUser} setShareModalVisible={setShareModalVisible}/>}
     </div>
   );

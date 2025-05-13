@@ -45,7 +45,7 @@ function Question({ setShareModalVisible, setCurrentPage, user, setUser }) {
     });
   
     if (!(currentIndex < questions.length - 1)) {
-      setCurrentPage("result");
+      setCurrentPage("loading");
     }
   
     console.log(user.answers); 

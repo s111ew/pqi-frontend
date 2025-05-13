@@ -1,0 +1,144 @@
+.loading {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  padding: 16px 0px 94px 0px;
+  max-width: 874px;
+}
+
+.buttonContainer {
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.butterfly {
+  position: absolute;
+  top: -80px;
+  left: -100px;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  color: var(--teal-1);
+  font-size: 32px !important;
+  line-height: 45px;
+  font-family: "Merriweather";
+  font-weight: 500 !important;
+  text-align: center;
+}
+
+.body {
+  text-align: center;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.animationContainer {
+  position: relative;
+  height: 48px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.animation {
+  position: absolute;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  height: 100%;
+}
+
+.ball {
+  animation: grow 2s linear infinite;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+}
+.ball:nth-child(1) {
+  animation-delay: 0ms;
+}
+.ball:nth-child(2) {
+  animation-delay: 500ms;
+}
+.ball:nth-child(3) {
+  animation-delay: 1000ms;
+}
+.ball:nth-child(4) {
+  animation-delay: 1500ms;
+}
+.ball:nth-child(5) {
+  animation-delay: 2000ms;
+}
+
+@keyframes grow {
+  0% {
+    width: 16px;
+    height: 16px;
+    background-color: var(--orange-1);
+  }
+  50% {
+    width: 48px;
+    height: 48px;
+    background-color: var(--orange-2);
+  }
+  100% {
+    width: 16px;
+    height: 16px;
+    background-color: var(--orange-1);
+  }
+}
+
+@media only screen and (max-width: 994px) {
+  .loading {
+    padding: 16px 20px;
+    max-width: 664px;
+  }
+
+  .ball {
+    width: 12px;
+    height: 12px;
+  }
+
+  .butterfly {
+    top: -20px;
+    left: -50px;
+  }
+
+  @keyframes grow {
+    0% {
+      width: 12px;
+      height: 12px;
+      background-color: var(--orange-1);
+    }
+    50% {
+      width: 36px;
+      height: 36px;
+      background-color: var(--orange-2);
+    }
+    100% {
+      width: 12px;
+      height: 12px;
+      background-color: var(--orange-1);
+    }
+  }
+}
+
+/* --- Mobile: up to 578px --- */
+@media only screen and (max-width: 578px) {
+  .loading {
+    padding: 16px 12px;
+  }
+
+  .butterfly {
+    top: -10px;
+    left: 0px;
+  }
+}
