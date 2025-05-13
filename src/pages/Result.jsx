@@ -20,9 +20,18 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
   const [cognitiveIsOpen, setCognitiveIsOpen] = useState(false);
   const [systemicIsOpen, setSystemicIsOpen] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const [isMax, setIsMax] = useState(false);
-  const [isMin, setIsMin] = useState(false);
 
+    const calculatePercentage = (answers) => {
+    let total = 0;
+    answers.forEach(answer => {
+      total += answer.answer
+    })
+    return total;
+  }
+
+  const total = user?.answers ? calculatePercentage(user.answers) : null;
+  const isMax = total === 100;
+  const isMin = total === 20;
 
   useEffect(() => {
     const handleResize = () => setScreenWidth(window.innerWidth);
@@ -60,18 +69,8 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
       const { topCategory, bottomCategory } = getTopAndBottomCategories(user);
       setHighest(topCategory);
       setLowest(bottomCategory);
-      checkMinMax(user.answers);
     }
   }, [user]);
-
-  function checkMinMax(answers) {
-    const total = calculatePercentage(answers)
-    if (total === 100) {
-      setIsMax(true);
-    } else if (total === 20) {
-      setIsMin(true);
-    }
-  }
 
   function getTopAndBottomCategories(data) {
     const scores = {};
@@ -159,21 +158,6 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
   const systemicWidth = `clamp(90px, ${baseSizeVW + (scores.systemic * scaleVW)}vw, 200px)`;
   const cognitiveWidth = `clamp(90px, ${baseSizeVW + (scores.cognitive * scaleVW)}vw, 200px)`;
   const playfulWidth = `clamp(90px, ${baseSizeVW + (scores.playful * scaleVW * 0.6)}vw, 200px)`;
-
-  // const handlePageScroll = () => {
-  //   const section = document.getElementById("email-section");
-  //   if (section) {
-  //     section.scrollIntoView({ behavior: "smooth" });
-  //   }
-  // };
-
-  const calculatePercentage = (answers) => {
-    let total = 0;
-    answers.forEach(answer => {
-      total += answer.answer
-    })
-    return total;
-  }
 
   const result = (
       <div className={`${styles.subContent} ${styles.large}`}>
