@@ -355,7 +355,7 @@ h3 {
 /* --- Mobile: up to 578px --- */
 @media only screen and (max-width: 578px) {
   .result {
-    padding: 16px 12px;
+    padding: 16px 12px 36px 12px;
   }
 
   .large {
