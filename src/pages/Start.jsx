@@ -25,7 +25,7 @@ function Start({ setShareModalVisible, setCurrentPage, setUser }) {
   }, []);
 
   const goBack = () => {
-    setCurrentPage("intro")
+    setCurrentPage("intro");
   }
 
   const handleShareClick = () => {

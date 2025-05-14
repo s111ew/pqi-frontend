@@ -1,0 +1,65 @@
+.fourOhFour {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  padding: 16px 0px;
+  max-width: 874px;
+}
+
+.buttonContainer {
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.butterfly {
+  position: absolute;
+  top: -80px;
+  left: -100px;
+  pointer-events: none;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  color: var(--teal-1);
+  font-size: 32px !important;
+  line-height: 45px;
+  font-family: "Merriweather";
+  font-weight: 500 !important;
+  text-align: center;
+}
+
+.buttonContainerInner {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+@media only screen and (max-width: 994px) {
+  .fourOhFour {
+    padding: 16px 20px;
+    max-width: 664px;
+  }
+
+  .butterfly {
+    top: -20px;
+    left: -50px;
+  }
+}
+
+@media only screen and (max-width: 578px) {
+  .fourOhfour {
+    padding: 16px 12px 36px 12px;
+  }
+
+  .butterfly {
+    top: -10px;
+    left: 0px;
+  }
+}

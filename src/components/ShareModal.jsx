@@ -58,7 +58,10 @@ function ShareModal({ setShareModalVisible }) {
         <img src={qrCode} alt="QR code" />
       </div>
       <div className={styles.copyContainer}>
-        <div className={styles.copyText}>{linkText}
+        <div className={`${styles.copyBorder} ${copied ? styles.copied : ''}`}>
+          <div className={`${styles.copyText} ${copied ? styles.copied : ''}`}>
+            {linkText}
+          </div>
           <div className={`${styles.copyButton} ${copied ? styles.copied : ''}`} onClick={handleClick}>
             <p className={styles.buttonText}>{copied ? 'Copied to clipboard!' : "Copy"}</p>
           </div>

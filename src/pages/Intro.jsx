@@ -26,9 +26,9 @@ function Intro({ setCurrentPage, setShareModalVisible }) {
   }
 
   const onClick = () => {
-    console.log("Clicked! Going to 'start'");
     setCurrentPage("start");
   }
+
   const mainContent = (
     <>
       <div className={styles.mainText}>

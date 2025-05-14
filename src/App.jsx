@@ -4,6 +4,7 @@ import Start from './pages/Start'
 import Question from './pages/Question'
 import Loading from './pages/Loading'
 import Result from './pages/Result'
+import FourOhFour from './pages/fourOhFour.jsx'
 import { useState, useEffect } from 'react'
 import useLocalStorageUser from './tools/useLocalStorageUser.js'
 import ShareModal from './components/ShareModal.jsx'
@@ -27,18 +28,31 @@ function App() {
     }
   };
 
-  evaluatePage();
-}, []);
+    evaluatePage();
+  }, []);
+
+    const renderPage = () => {
+    switch (currentPage) {
+      case 'intro':
+        return <Intro setCurrentPage={setCurrentPage} setShareModalVisible={setShareModalVisible} />;
+      case 'start':
+        return <Start setCurrentPage={setCurrentPage} setShareModalVisible={setShareModalVisible} user={user} setUser={setUser} />;
+      case 'question':
+        return <Question setCurrentPage={setCurrentPage} setShareModalVisible={setShareModalVisible} user={user} setUser={setUser} />;
+      case 'loading':
+        return <Loading setCurrentPage={setCurrentPage} setShareModalVisible={setShareModalVisible} />;
+      case 'result':
+        return <Result setCurrentPage={setCurrentPage} user={user} setUser={setUser} setShareModalVisible={setShareModalVisible} />;
+      default:
+        return <FourOhFour setCurrentPage={setCurrentPage} setUser={setUser} setShareModalVisible={setShareModalVisible} />;
+    }
+  };
 
 
   return (
     <div className="App">
       {shareModalVisible ? <ShareModal setShareModalVisible={setShareModalVisible} /> : ''}
-      {currentPage === 'intro' && <Intro setCurrentPage={setCurrentPage} setShareModalVisible={setShareModalVisible} />}
-      {currentPage === 'start' && <Start setCurrentPage={setCurrentPage} setShareModalVisible={setShareModalVisible} user={user} setUser={setUser} />}
-      {currentPage === 'question' && <Question setCurrentPage={setCurrentPage} setShareModalVisible={setShareModalVisible} user={user} setUser={setUser} />}
-      {currentPage === 'loading' && <Loading setCurrentPage={setCurrentPage} setShareModalVisible={setShareModalVisible} />}
-      {currentPage === 'result' && <Result setCurrentPage={setCurrentPage} user={user} setUser={setUser} setShareModalVisible={setShareModalVisible}/>}
+      {renderPage()}
     </div>
   );
 }

@@ -5,16 +5,29 @@
 
 .inputBorder {
   width: 100%;
-  padding: 21px 25px;
+  padding: 8px 8px 8px 16px;
   border: 2px dashed var(--orange-2);
   border-radius: 50px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.inputBorder.sent {
+  padding: 8px;
+  gap: 0px;
 }
 
 .input {
-  width: 62%;
   border: none;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: none;
+  flex-grow: 1;
+}
+
+.input.sent {
+  display: none;
 }
 
 .input:focus {
@@ -39,9 +52,6 @@
 }
 
 .inputButton {
-  position: absolute;
-  right: 9px;
-  top: 8px;
   color: var(--black-1);
   padding: 16px 28px;
   border-radius: 50px;
@@ -52,11 +62,8 @@
   background-color: var(--orange-1);
 }
 
-.sent {
-  right: 9px;
-  top: 7px;
-  height: 79%;
-  width: 96%;
+.inputButton.sent {
+  width: 100%;
   justify-content: center !important;
   pointer-events: none;
 }

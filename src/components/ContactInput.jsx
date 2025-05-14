@@ -79,17 +79,17 @@ function ContactInput({ user, setUser, textPlaceholder, buttonText }) {
   return (
     <div className={styles.outerInputContainer}>
         <div className={styles.inputContainer}>
-          <div className={`${styles.inputBorder} ${emailError ? styles.error : ''}`}>
+          <div className={`${styles.inputBorder} ${emailError ? styles.error : ''} ${sent ? styles.sent : ''}`}>
             <input
               type="email"
-              className={styles.input}
+              className={`${styles.input} ${sent ? styles.sent : ''}`}
               placeholder={textPlaceholder}
               value={email}
               onChange={handleChange}
             />
-          </div>
-          <div className={`${styles.inputButton} ${sent ? styles.sent : ''}`} onClick={handleClick}>
+            <div className={`${styles.inputButton} ${sent ? styles.sent : ''}`} onClick={handleClick}>
             <p className={styles.buttonText}>{sent ? 'Check your inbox!' : buttonText}</p>
+          </div>
           </div>
         </div>
         {emailError ? <div className={`${styles.disclaimer} ${styles.errorDisclaimer}`}><img src={errorIcon} alt="tip" /><span>Please enter a valid email.</span></div> : ''}
