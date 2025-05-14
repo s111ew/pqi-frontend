@@ -29,7 +29,7 @@
   color: var(--teal-1);
   font-size: 32px !important;
   line-height: 45px;
-  font-family: "Merriweather";
+  font-family: "Merriweather", Georgia, serif;
   font-weight: 500 !important;
   text-align: center;
 }

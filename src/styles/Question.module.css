@@ -50,26 +50,13 @@
 }
 
 .questionText {
-  font-family: "Merriweather";
+  font-family: "Merriweather", Georgia, serif;
   color: var(--teal-1);
   font-size: 32px;
   line-height: 45px;
   font-weight: 500;
   height: 90px;
 }
-
-/* .fadeIn {
-  animation: fade-in 500ms linear;
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0%;
-  }
-  100% {
-    opacity: 100%;
-  }
-} */
 
 .fade {
   animation: fade 1000ms linear;

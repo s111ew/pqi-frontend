@@ -19,7 +19,7 @@ function ButtonMain({ onClick, buttonText, iconSrc, iconAlt, isOuter, isDisabled
       className={`${styles.button} ${isAnimating && !isDisabled ? styles.animate : ''} ${isOuter ? styles.outer : ''} ${isDisabled ? styles.disabled : ''}`}
       onClick={onClickDelay}
     >
-      <p className={styles.buttonText}>{buttonText}</p>
+      <p id={`${id}-text`} className={styles.buttonText}>{buttonText}</p>
       {iconSrc ? (
         <img className={styles.buttonIcon} src={iconSrc} alt={iconAlt} />
       ) : null}

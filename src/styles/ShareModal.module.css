@@ -57,7 +57,7 @@
 }
 
 .textContainer > h3 {
-  font-family: "Merriweather" !important;
+  font-family: "Merriweather", Georgia, serif !important;
   text-align: center;
   color: var(--teal-1);
   font-size: 32px;

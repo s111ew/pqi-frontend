@@ -68,10 +68,10 @@ body {
   align-items: center;
 }
 
-@font-face {
+/* @font-face {
   font-family: "Merriweather";
   src: url(../src/assets/fonts/Merriweather.woff2);
-}
+} */
 
 @font-face {
   font-family: "Helvetica Neue";
