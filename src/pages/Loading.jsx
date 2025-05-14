@@ -50,7 +50,7 @@ function Loading({ setCurrentPage, setShareModalVisible }) {
       </div>
       </div>
       <div className={styles.body}>
-        <p>Taking this quiz regularly helps you keep track of and expand your play intelligence the way you want to.</p>
+        <p>Taking this quiz regularly helps you keep track of and expand your play intelligence the way you want to</p>
       </div>
     </>
   )

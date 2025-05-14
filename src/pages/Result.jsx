@@ -221,7 +221,7 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
   const content1 = (
     <div className={`${styles.subContent} ${styles.margin}`}>
       <h3>Ways to play with your result:</h3>
-      <p>You may wish to set an intention to be more playful going forward... Choose to focus on a particular area of development such as physical development. Come up with ideas and pick one to try.</p>
+      <p>You may wish to set an intention to be more playful going forward... Choose to focus on a particular aspect of development such as physical development. Come up with ideas and pick one to try.</p>
       <p>We recommend taking this quiz regularly to help you keep track of and expand your play intelligence the way you want to.</p>
       <p>Past participants have said this can lead to remarkable results!</p>
     </div>
@@ -238,7 +238,7 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
       </ul>
       <p className={`${styles.bold} ${styles.leftAlign}`}>At work:</p>
       <ul>
-        <li><div className={styles.bullet}></div><span>Which area of play can you strengthen among colleagues?</span></li>
+        <li><div className={styles.bullet}></div><span>Which aspect of play can you strengthen among colleagues?</span></li>
         <li><div className={styles.bullet}></div><span>How can you change your workplace for the better?</span></li>
         <li><div className={styles.bullet}></div><span>How could you have more fun at work?</span></li>
       </ul>
@@ -259,7 +259,7 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
       <img className={styles.headshot} src={headshot} alt="Portia Tung" />
       <p>Portia Tung is an organisational leadership coach, play researcher and Agile coach. She is dedicated to promoting happier adulthood through lifelong play.</p>
       <p>With 20+ years in enabling transformational change, Portia helps leaders and teams solve complex challenges while making work more enjoyable, effective and efficient.</p>
-      <p className={styles.bold}>Book a free discovery session with Portia to explore ways to unlock human potential in your organisation and have fun doing it.</p>
+      <p className={styles.bold}>Book a free discovery session with Portia to explore ways to unlock human potential in your organisation and have fun doing it</p>
       <div className={`${styles.buttonContainer} ${styles.singleButton}`}>
         <ButtonMain onClick={goToChat} buttonText={"Let's chat!"} />
       </div>

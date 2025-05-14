@@ -60,7 +60,7 @@ function Start({ setShareModalVisible, setCurrentPage, setUser }) {
               setIsValidName(false);
             }
           }} />
-          <div className={`${styles.disclaimer} ${isDisclaimerErr ? styles.err : ''}`}><img src={isDisclaimerErr ? infoErrorIcon : infoIcon} alt="tip" /><span>Please enter your first name to continue.</span></div>
+          <div className={`${styles.disclaimer} ${isDisclaimerErr ? styles.err : ''}`}><img src={isDisclaimerErr ? infoErrorIcon : infoIcon} alt="tip" /><span>Please enter your first name to continue</span></div>
         </div>
       </div>
       <ButtonMain
@@ -74,7 +74,7 @@ function Start({ setShareModalVisible, setCurrentPage, setUser }) {
   const subContent1 = (
     <>
       <h3 className={styles.subContainerTitle}>Top Tip</h3>
-      <p>If you are uncertain on how to answer a question, decipher and define its meaning for yourself</p>
+      <p>If you are uncertain on how to answer a question, decipher and define its meaning for yourself.</p>
     </>
   );
 

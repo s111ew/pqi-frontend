@@ -12,26 +12,29 @@ function Radios({ onNext }) {
 
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [disabled, setDisabled] = useState(false);
+  const [animatingIndex, setAnimatingIndex] = useState(null); // use index instead of boolean
   const inputRefs = useRef([]);
 
   const handleChange = (index) => {
-   if (disabled) return;
-  
-   const inputEl = inputRefs.current[index];
-   inputEl?.classList.add(styles.touched); // Add custom style
-  
-   setSelectedIndex(index);
-   setDisabled(true);
-  
-   const score = index + 1;
-  
-   setTimeout(() => {
-     inputEl?.classList.remove(styles.touched); // Clean up effect
-     onNext(score);
-     setSelectedIndex(null); // Uncheck the radio
-     setDisabled(false);
-     inputRefs.current.forEach(input => input?.blur());
-   }, 1000);
+    if (disabled) return;
+
+    setAnimatingIndex(index); // Start animation
+    const inputEl = inputRefs.current[index];
+    inputEl?.classList.add(styles.touched);
+
+    setSelectedIndex(index);
+    setDisabled(true);
+
+    const score = index + 1;
+
+    setTimeout(() => {
+      setAnimatingIndex(null); // Stop animation
+      inputEl?.classList.remove(styles.touched);
+      onNext(score);
+      setSelectedIndex(null);
+      setDisabled(false);
+      inputRefs.current.forEach(input => input?.blur());
+    }, 500);
   };
 
   return (
@@ -44,14 +47,18 @@ function Radios({ onNext }) {
           >
             <input
               ref={(el) => inputRefs.current[index] = el}
-              className={`${styles.radio} ${disabled && index !== selectedIndex ? styles.disabled : ''}`}
+              className={`
+                ${styles.radio}
+                ${animatingIndex === index ? styles.animate : ''}
+                ${disabled && index !== selectedIndex ? styles.disabled : ''}
+              `}
               type="radio"
               name="truth-scale"
               value={label}
               checked={selectedIndex === index}
               onChange={() => handleChange(index)}
               disabled={disabled}
-          />
+            />
           </label>
         ))}
       </div>

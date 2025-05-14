@@ -10,6 +10,8 @@ import arrowIcon from "../assets/icons/arrowLeft.svg"
 
 function Question({ setShareModalVisible, setCurrentPage, user, setUser }) {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [animateIn, setAnimateIn] = useState(false);
+  const [animateOut, setAnimateOut] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(() => {
     if (user && Array.isArray(user.answers)) {
       return user.answers.length;
@@ -30,25 +32,33 @@ function Question({ setShareModalVisible, setCurrentPage, user, setUser }) {
   const handleNext = (score) => {
     const { question, category } = questions[currentIndex];
     const newAnswer = { question, category, answer: score };
+
+    setAnimateOut(true);
   
-    setCurrentIndex(currentIndex + 1);
+    setTimeout(() => {
+      setCurrentIndex(currentIndex + 1);
+
+      setUser((prev) => {
+        if (!prev.answers) {
+          return { ...prev, answers: [newAnswer] };
+        }
   
-    setUser((prev) => {
-      if (!prev.answers) {
-        return { ...prev, answers: [newAnswer] };
+        return {
+          ...prev,
+          answers: [...prev.answers, newAnswer],
+        };
+      });
+  
+      if (!(currentIndex < questions.length - 1)) {
+        setCurrentPage("loading");
       }
-  
-      return {
-        ...prev,
-        answers: [...prev.answers, newAnswer],
-      };
-    });
-  
-    if (!(currentIndex < questions.length - 1)) {
-      setCurrentPage("loading");
-    }
-  
-    console.log(user.answers); 
+
+      setAnimateOut(false);
+      setAnimateIn(true);
+      setTimeout(() => {
+        setAnimateIn(false)
+      }, 500)
+    }, 500)
   };
   
 
@@ -85,7 +95,7 @@ function Question({ setShareModalVisible, setCurrentPage, user, setUser }) {
       <p className={`${styles.disclaimer} ${currentIndex !== 0 ? styles.whiteText : ''}`}>For each statement, choose the answer that best reflects how you are in reality, not as you should or would like to be.</p>
       <div className={styles.questionTextContainer}>
       <p>{`${currentIndex + 1} of ${questions.length}`}</p>
-        <h2 className={styles.questionText}>{questions[currentIndex].question}</h2>
+        <h2 className={`${styles.questionText} ${animateIn ? styles.fadeIn : (animateOut ? styles.fadeOut : '')}`}>{questions[currentIndex].question}</h2>
       </div>
       <Radios onNext={handleNext} />
     </>

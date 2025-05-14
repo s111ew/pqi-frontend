@@ -63,7 +63,7 @@ function ShareModal({ setShareModalVisible }) {
             <p className={styles.buttonText}>{copied ? 'Copied to clipboard!' : "Copy"}</p>
           </div>
         </div>
-        <div className={styles.disclaimerContainer}><img src={tipIcon} alt="info" /><span className={styles.disclaimer}>Save the link to retake the quiz anytime.</span></div>
+        <div className={styles.disclaimerContainer}><img src={tipIcon} alt="info" /><span className={styles.disclaimer}>Save the link to retake the quiz anytime</span></div>
       </div>
     </div>
   );

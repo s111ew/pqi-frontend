@@ -1,7 +1,7 @@
 export const best = {
   physical: {
     title: "Physical Development",
-    body: "In what other ways can you develop this key play strength of yours? Perhaps combine activities that involve physically development and your next highest area of development. Why not contemplate these wonderings while moving about and see what emerges?",
+    body: "In what other ways can you develop this key play strength of yours? Perhaps combine activities that involve physical development and your next highest aspect of development. Why not contemplate these wonderings while moving about and see what emerges?",
   },
   emotional: {
     title: "Emotional Development",
@@ -56,6 +56,6 @@ export const worst = {
   },
   min: {
     title: "",
-    body: "Even though play may not yet be one of your strengths, each of us have play potential. Under which circumstances do you feel most playful? And what about situations that make play impossible? How about choosing one of the six areas of play you feel most drawn to and begin nurturing your play intelligence today?",
+    body: "Even though play may not yet be one of your strengths, each of us have play potential. Under which circumstances do you feel most playful? And what about situations that make play impossible? How about choosing one of the six aspects of play you feel most drawn to and begin nurturing your play intelligence today?",
   },
 };
