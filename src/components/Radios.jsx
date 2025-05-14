@@ -39,7 +39,7 @@ function Radios({ currentIndex, onNext }) {
 
   return (
     <div className={styles.container}>
-      <div id={currentIndex >= 19 ? "finish-quiz" : ''} className={styles.radioContainer}>
+      <div className={styles.radioContainer}>
         {options.map((label, index) => (
           <label
             key={index}
@@ -52,6 +52,7 @@ function Radios({ currentIndex, onNext }) {
                 ${animatingIndex === index ? styles.animate : ''}
                 ${disabled && index !== selectedIndex ? styles.disabled : ''}
               `}
+              id={currentIndex >= 19 ? `finish-quiz-${index}` : ''}
               type="radio"
               name="truth-scale"
               value={label}
