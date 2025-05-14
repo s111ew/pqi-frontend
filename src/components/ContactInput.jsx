@@ -40,11 +40,16 @@ function ContactInput({ user, setUser, textPlaceholder, buttonText }) {
 
   // Submits hidden Jetpack form
   const subscribeToWordpressBlogViaForm = (email) => {
-    if (formRef.current) {
-      formRef.current.email.value = email;
+  if (formRef.current) {
+    const emailInput = formRef.current.querySelector('input[name="email"]');
+    if (emailInput) {
+      emailInput.value = email;
       formRef.current.submit();
+    } else {
+      console.error("Email input not found in the form.");
     }
-  };
+  }
+};
 
   const isValidEmail = (email) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -116,7 +121,7 @@ function ContactInput({ user, setUser, textPlaceholder, buttonText }) {
           <input type="hidden" name="blog_id" value="110301521" />
           <input type="hidden" name="source" value="https://theschoolofplay.org" />
           <input type="hidden" name="sub-type" value="widget" />
-          <input type="email" name="email" />
+          <input type="text" name="email" />
         </form>
     </div>
   );
