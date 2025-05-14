@@ -1,7 +1,7 @@
 import styles from '../styles/ButtonMain.module.css';
 import { useState } from 'react';
 
-function ButtonMain({ onClick, buttonText, iconSrc, iconAlt, isOuter, isDisabled }) {
+function ButtonMain({ onClick, buttonText, iconSrc, iconAlt, isOuter, isDisabled, id }) {
   const [isAnimating, setIsAnimating] = useState(false);
 
   function onClickDelay() {
@@ -15,6 +15,7 @@ function ButtonMain({ onClick, buttonText, iconSrc, iconAlt, isOuter, isDisabled
 
   return (
     <div
+      id={id}
       className={`${styles.button} ${isAnimating && !isDisabled ? styles.animate : ''} ${isOuter ? styles.outer : ''} ${isDisabled ? styles.disabled : ''}`}
       onClick={onClickDelay}
     >

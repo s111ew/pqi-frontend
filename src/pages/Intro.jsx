@@ -68,7 +68,7 @@ function Intro({ setCurrentPage, setShareModalVisible }) {
     <main className={styles.intro}>
       <div className={styles.buttonContainer}>
         <ButtonAlt isReverse={true} onClick={goToSop} buttonText={'The School of Play'} iconSrc={TsopLogo} iconAlt={'Back to The School of Play'}/>
-        <ButtonAlt onClick={handleShareClick} buttonText={screenWidth < 579 ? 'Share' : 'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
+        <ButtonAlt id={"share"} onClick={handleShareClick} buttonText={screenWidth < 579 ? 'Share' : 'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
       </div>
       <ContentContainer content={mainContent}/>
       <div className={styles.subContainer}>

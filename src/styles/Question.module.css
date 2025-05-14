@@ -58,7 +58,7 @@
   height: 90px;
 }
 
-.fadeIn {
+/* .fadeIn {
   animation: fade-in 500ms linear;
 }
 
@@ -69,18 +69,21 @@
   100% {
     opacity: 100%;
   }
+} */
+
+.fade {
+  animation: fade 1000ms linear;
 }
 
-.fadeOut {
-  animation: fade-out 500ms linear;
-}
-
-@keyframes fade-out {
+@keyframes fade {
   0% {
     opacity: 100%;
   }
-  100% {
+  50% {
     opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
   }
 }
 

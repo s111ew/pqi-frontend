@@ -281,7 +281,7 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
     <main className={styles.result}>
       <div className={styles.buttonContainer}>
         <ButtonMain onClick={resetQuiz} buttonText={'Retake quiz'} iconSrc={tipIcon} iconAlt={'save your results'} isOuter={true}/>
-        <ButtonAlt onClick={handleClick} buttonText={screenWidth < 579 ? 'Share' : 'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
+        <ButtonAlt id={"share"} onClick={handleClick} buttonText={screenWidth < 579 ? 'Share' : 'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
       </div>
       <div className={styles.content}>
         <SubContent content={result}/>

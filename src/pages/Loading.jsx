@@ -58,7 +58,7 @@ function Loading({ setCurrentPage, setShareModalVisible }) {
   return(
     <main className={styles.loading}>
       <div className={styles.buttonContainer}>
-        <ButtonAlt onClick={handleShareClick} buttonText={screenWidth < 579 ? 'Share' : 'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
+        <ButtonAlt id={"share"} onClick={handleShareClick} buttonText={screenWidth < 579 ? 'Share' : 'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
       </div>
       <ContentContainer content={mainContent}/>
     </main>

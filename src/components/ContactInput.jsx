@@ -87,7 +87,7 @@ function ContactInput({ user, setUser, textPlaceholder, buttonText }) {
               value={email}
               onChange={handleChange}
             />
-            <div className={`${styles.inputButton} ${sent ? styles.sent : ''}`} onClick={handleClick}>
+            <div id={!emailError ? "save-results" : ''} className={`${styles.inputButton} ${sent ? styles.sent : ''}`} onClick={handleClick}>
             <p className={styles.buttonText}>{sent ? 'Check your inbox!' : buttonText}</p>
           </div>
           </div>

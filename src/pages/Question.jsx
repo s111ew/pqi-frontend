@@ -10,8 +10,7 @@ import arrowIcon from "../assets/icons/arrowLeft.svg"
 
 function Question({ setShareModalVisible, setCurrentPage, user, setUser }) {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const [animateIn, setAnimateIn] = useState(false);
-  const [animateOut, setAnimateOut] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(() => {
     if (user && Array.isArray(user.answers)) {
       return user.answers.length;
@@ -33,7 +32,7 @@ function Question({ setShareModalVisible, setCurrentPage, user, setUser }) {
     const { question, category } = questions[currentIndex];
     const newAnswer = { question, category, answer: score };
 
-    setAnimateOut(true);
+    setIsAnimating(true);
   
     setTimeout(() => {
       setCurrentIndex(currentIndex + 1);
@@ -53,10 +52,8 @@ function Question({ setShareModalVisible, setCurrentPage, user, setUser }) {
         setCurrentPage("loading");
       }
 
-      setAnimateOut(false);
-      setAnimateIn(true);
       setTimeout(() => {
-        setAnimateIn(false)
+        setIsAnimating(false)
       }, 500)
     }, 500)
   };
@@ -95,9 +92,9 @@ function Question({ setShareModalVisible, setCurrentPage, user, setUser }) {
       <p className={`${styles.disclaimer} ${currentIndex !== 0 ? styles.whiteText : ''}`}>For each statement, choose the answer that best reflects how you are in reality, not as you should or would like to be.</p>
       <div className={styles.questionTextContainer}>
       <p>{`${currentIndex + 1} of ${questions.length}`}</p>
-        <h2 className={`${styles.questionText} ${animateIn ? styles.fadeIn : (animateOut ? styles.fadeOut : '')}`}>{questions[currentIndex].question}</h2>
+        <h2 className={`${styles.questionText} ${isAnimating ? styles.fade : ''}`}>{questions[currentIndex].question}</h2>
       </div>
-      <Radios onNext={handleNext} />
+      <Radios currentIndex={currentIndex} onNext={handleNext} />
     </>
   );
 
@@ -105,7 +102,7 @@ function Question({ setShareModalVisible, setCurrentPage, user, setUser }) {
     <main className={styles.question}>
       <div className={styles.buttonContainer}>
         <ButtonAlt isReverse={true} onClick={handlePrevious} buttonText={currentIndex === 0 ? "Back" : "Previous question"} iconSrc={arrowIcon} iconAlt={'Back to previous page'}/>
-        <ButtonAlt onClick={handleShareClick} buttonText={screenWidth < 579 ? 'Share' : 'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
+        <ButtonAlt id={"share"} onClick={handleShareClick} buttonText={screenWidth < 579 ? 'Share' : 'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
       </div>
       <ContentContainer isQuestion={true} content={mainContent}/>
       <div className={styles.progress}>

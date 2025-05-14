@@ -64,6 +64,7 @@ function Start({ setShareModalVisible, setCurrentPage, setUser }) {
         </div>
       </div>
       <ButtonMain
+        id={isValidName ? "start-quiz" : ''}
         buttonText={"First question"}
         onClick={handleClick}
         isDisabled={isValidName ? false : true}
@@ -92,7 +93,7 @@ function Start({ setShareModalVisible, setCurrentPage, setUser }) {
     <main className={styles.start}>
       <div className={styles.buttonContainer}>
         <ButtonAlt isReverse={true} onClick={goBack} buttonText={'Back'} iconSrc={arrowIcon} iconAlt={'Back to previous page'}/>
-        <ButtonAlt onClick={handleShareClick} buttonText={screenWidth < 579 ? 'Share' : 'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
+        <ButtonAlt id={"share"} onClick={handleShareClick} buttonText={screenWidth < 579 ? 'Share' : 'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
       </div>
       <ContentContainer content={mainContent} />
       <div className={styles.subContainer}>

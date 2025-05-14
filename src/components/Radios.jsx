@@ -1,7 +1,7 @@
 import styles from "../styles/Radios.module.css";
 import { useState, useRef } from "react";
 
-function Radios({ onNext }) {
+function Radios({ currentIndex, onNext }) {
   const options = [
     "Definitely False",   // 1
     "Somewhat False",     // 2
@@ -39,7 +39,7 @@ function Radios({ onNext }) {
 
   return (
     <div className={styles.container}>
-      <div className={styles.radioContainer}>
+      <div id={currentIndex >= 19 ? "finish-quiz" : ''} className={styles.radioContainer}>
         {options.map((label, index) => (
           <label
             key={index}
