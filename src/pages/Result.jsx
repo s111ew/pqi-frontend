@@ -261,7 +261,7 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
       <p>With 20+ years in enabling transformational change, Portia helps leaders and teams solve complex challenges while making work more enjoyable, effective and efficient.</p>
       <p className={styles.bold}>Book a free discovery session with Portia to explore ways to unlock human potential in your organisation and have fun doing it</p>
       <div className={`${styles.buttonContainer} ${styles.singleButton}`}>
-        <ButtonMain onClick={goToChat} buttonText={"Let's chat!"} />
+        <ButtonMain id={"explore-call"} onClick={goToChat} buttonText={"Let's chat!"} />
       </div>
     </div>
   )
@@ -271,8 +271,8 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
       <h3>More about The School of Play</h3>
       <p>We at The School of Play cordially invite you and your organisation to reconnect with your greatest superpower to co-create positive organisational change.</p>
       <div className={styles.buttonContainer}>
-        <ButtonMain onClick={goToCoaching} buttonText={"Explore coaching"} />
-        <ButtonMain onClick={goToCourses} buttonText={"Browse courses"} />
+        <ButtonMain id={"explore-coaching"} onClick={goToCoaching} buttonText={"Explore coaching"} />
+        <ButtonMain id={"explore-courses"} onClick={goToCourses} buttonText={"Browse courses"} />
       </div>
     </div>
   )

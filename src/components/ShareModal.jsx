@@ -62,8 +62,8 @@ function ShareModal({ setShareModalVisible }) {
           <div className={`${styles.copyText} ${copied ? styles.copied : ''}`}>
             {linkText}
           </div>
-          <div className={`${styles.copyButton} ${copied ? styles.copied : ''}`} onClick={handleClick}>
-            <p className={styles.buttonText}>{copied ? 'Copied to clipboard!' : "Copy"}</p>
+          <div id={"copy"} className={`${styles.copyButton} ${copied ? styles.copied : ''}`} onClick={handleClick}>
+            <p id={"copy-text"} className={styles.buttonText}>{copied ? 'Copied to clipboard!' : "Copy"}</p>
           </div>
         </div>
         <div className={styles.disclaimerContainer}><img src={tipIcon} alt="info" /><span className={styles.disclaimer}>Save the link to retake the quiz anytime</span></div>
