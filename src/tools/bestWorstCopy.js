@@ -44,7 +44,7 @@ export const worst = {
   },
   systemic: {
     title: "Systemic Development",
-    body: "How can instil a greater sense of belonging to the groups and communities you are part of? What if you combined this with your highest play strength? In what ways can this help you cultivate deeper trust in yourself and those around you?",
+    body: "How can you instil a greater sense of belonging to the groups and communities you are part of? What if you combined this with your highest play strength? In what ways can this help you cultivate deeper trust in yourself and those around you?",
   },
   social: {
     title: "Social Development",
