@@ -53,7 +53,6 @@ function ContactInput({ user, setUser, textPlaceholder, buttonText }) {
       const updatedUser = { ...user, email: email };
       sendQuizResults(updatedUser);
   
-      console.log(updatedUser);
       setSent(true);
 
       setTimeout(() => {
