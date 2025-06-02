@@ -3,7 +3,7 @@ import styles from "../styles/ContactInput.module.css";
 import infoIcon from "../assets/icons/Info.svg";
 import errorIcon from "../assets/icons/WarningOctagon.svg";
 
-function ContactInput({ user, setUser, textPlaceholder, buttonText }) {
+function ContactInput({ tabIndex, user, setUser, textPlaceholder, buttonText }) {
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState(false);
   const [sent, setSent] = useState(false);
@@ -79,13 +79,19 @@ function ContactInput({ user, setUser, textPlaceholder, buttonText }) {
         <div className={styles.inputContainer}>
           <div className={`${styles.inputBorder} ${emailError ? styles.error : ''} ${sent ? styles.sent : ''}`}>
             <input
+              tabIndex={tabIndex}
               type="email"
               className={`${styles.input} ${sent ? styles.sent : ''}`}
               placeholder={textPlaceholder}
               value={email}
               onChange={handleChange}
             />
-            <div id={!emailError ? "save-results" : ''} className={`${styles.inputButton} ${sent ? styles.sent : ''}`} onClick={handleClick}>
+            <div tabIndex={tabIndex + 1} id={!emailError ? "save-results" : ''} className={`${styles.inputButton} ${sent ? styles.sent : ''}`} onClick={handleClick} onKeyDown={(event) => {
+              if (event.key === 'Enter') {
+                event.preventDefault();
+                handleClick();
+              }
+            }}>
               <p id={!emailError ? "save-results-text" : ''} className={styles.buttonText}>{sent ? 'Check your inbox!' : buttonText}</p>
             </div>
           </div>

@@ -20,7 +20,7 @@ const Bubble = ({ type, label, score, width }) => {
         ${isOpen ? styles[`${type}Open`] : ''}
         ${isAnimating ? styles.animate : ''}
       `}
-      style={{ width, height: width }}
+      style={{ width, height: width, maxWidth: `250px`, maxHeight: `250px` }}
     >
       <span className={styles.bubbleText}>
         {isOpen ? `${score} / ${type === 'playful' ? '25' : '15'}` : (

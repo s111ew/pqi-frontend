@@ -107,8 +107,8 @@ function Question({ setShareModalVisible, setCurrentPage, user, setUser }) {
   return(
     <main className={styles.question}>
       <div className={styles.buttonContainer}>
-        <ButtonAlt isReverse={true} onClick={handlePrevious} buttonText={currentIndex === 0 ? "Back" : "Previous question"} iconSrc={arrowIcon} iconAlt={'Back to previous page'}/>
-        <ButtonAlt id={"share"} onClick={handleShareClick} buttonText={screenWidth < 579 ? 'Share' : 'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
+        <ButtonAlt tabIndex={1} isReverse={true} onClick={handlePrevious} buttonText={currentIndex === 0 ? "Back" : "Previous question"} iconSrc={arrowIcon} iconAlt={'Back to previous page'}/>
+        <ButtonAlt tabIndex={2} id={"share"} onClick={handleShareClick} buttonText={screenWidth < 579 ? 'Share' : 'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
       </div>
       <ContentContainer isQuestion={true} content={mainContent}/>
       <div className={styles.progress}>

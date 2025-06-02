@@ -42,8 +42,15 @@ function Radios({ currentIndex, onNext }) {
       <div className={styles.radioContainer}>
         {options.map((label, index) => (
           <label
+            tabIndex={3 + index}
             key={index}
             style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+            onKeyDown={(event) => {
+                if (event.key === 'Enter') {
+                  event.preventDefault();
+                  handleChange(index)
+                }
+              }}
           >
             <input
               ref={(el) => inputRefs.current[index] = el}

@@ -235,7 +235,7 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
     <div className={styles.emailContainer}>
       <h2 className={styles.emailTitle}>Keep the fun going!</h2>
       <p>Get your results by email, with a full breakdown of your answers. Find out more of what your results say about your relationship with play.</p>
-      <ContactInput user={user} setUser={setUser} textPlaceholder={'Email'} buttonText={screenWidth < 579 ? 'Save' : 'Save results'} />
+      <ContactInput tabIndex={3} user={user} setUser={setUser} textPlaceholder={'Email'} buttonText={screenWidth < 579 ? 'Save' : 'Save results'} />
     </div>
   )
 
@@ -247,7 +247,7 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
       <p>With 20+ years in enabling transformational change, Portia helps leaders and teams solve complex challenges while making work more enjoyable, effective and efficient.</p>
       <p className={styles.bold}>Book a free discovery session with Portia to explore ways to unlock human potential in your organisation and have fun doing it</p>
       <div className={`${styles.buttonContainer} ${styles.singleButton}`}>
-        <ButtonMain id={"explore-call"} onClick={goToChat} buttonText={"Let's chat!"} />
+        <ButtonMain tabIndex={7} id={"explore-call"} onClick={goToChat} buttonText={"Let's chat!"} />
       </div>
     </div>
   )
@@ -257,8 +257,8 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
       <h3>More about The School of Play</h3>
       <p>We at The School of Play cordially invite you and your organisation to reconnect with your greatest superpower to co-create positive organisational change.</p>
       <div className={styles.buttonContainer}>
-        <ButtonMain id={"explore-coaching"} onClick={goToCoaching} buttonText={"Explore coaching"} />
-        <ButtonMain id={"explore-courses"} onClick={goToCourses} buttonText={"Browse courses"} />
+        <ButtonMain tabIndex={5} id={"explore-coaching"} onClick={goToCoaching} buttonText={"Explore coaching"} />
+        <ButtonMain tabIndex={6} id={"explore-courses"} onClick={goToCourses} buttonText={"Browse courses"} />
       </div>
     </div>
   )
@@ -266,18 +266,18 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
   return(
     <main className={styles.result}>
       <div className={styles.buttonContainer}>
-        <ButtonMain isAlt={true} onClick={resetQuiz} buttonText={'Retake quiz'} iconSrc={tipIcon} iconAlt={'save your results'} isOuter={true}/>
-        <ButtonAlt id={"share"} onClick={handleClick} buttonText={screenWidth < 579 ? 'Share' : 'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
+        <ButtonMain tabIndex={1} isAlt={true} onClick={resetQuiz} buttonText={'Retake quiz'} iconSrc={tipIcon} iconAlt={'save your results'} isOuter={true}/>
+        <ButtonAlt tabIndex={2} id={"share"} onClick={handleClick} buttonText={screenWidth < 579 ? 'Share' : 'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
       </div>
       <div className={styles.content}>
         <SubContent content={result}/>
         <ContentContainerSmall content={content3}/>
+        <SubContent content={content5}/>
+        <SubContent content={content4}/>
         <div className={styles.subContainer}>
           <SubContent content={content1}/>
           <SubContent content={content2}/>
         </div>
-        <SubContent content={content4}/>
-        <SubContent content={content5}/>
       </div>
     </main>
   )

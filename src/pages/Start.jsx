@@ -48,7 +48,7 @@ function Start({ setShareModalVisible, setCurrentPage, setUser }) {
       <div className={styles.mainText}>
         <p>Ready, steady, go!<br />Who's taking the quiz today?</p>
         <div className={styles.inputContainer}>
-          <TextInput placeholderText="Name" value={firstName} onChange={(e) => {
+          <TextInput tabIndex={3} placeholderText="Name" value={firstName} onChange={(e) => {
             const name = e.target.value;
             setfirstName(name);
             if (/[a-z0-9]/i.test(name)) {
@@ -64,6 +64,7 @@ function Start({ setShareModalVisible, setCurrentPage, setUser }) {
         </div>
       </div>
       <ButtonMain
+        tabIndex={4}
         id={isValidName ? "start-quiz" : ''}
         buttonText={"First question"}
         onClick={handleClick}
@@ -92,8 +93,8 @@ function Start({ setShareModalVisible, setCurrentPage, setUser }) {
   return (
     <main className={styles.start}>
       <div className={styles.buttonContainer}>
-        <ButtonAlt isReverse={true} onClick={goBack} buttonText={'Back'} iconSrc={arrowIcon} iconAlt={'Back to previous page'}/>
-        <ButtonAlt id={"share"} onClick={handleShareClick} buttonText={screenWidth < 579 ? 'Share' : 'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
+        <ButtonAlt tabIndex={1} isReverse={true} onClick={goBack} buttonText={'Back'} iconSrc={arrowIcon} iconAlt={'Back to previous page'}/>
+        <ButtonAlt tabIndex={2} id={"share"} onClick={handleShareClick} buttonText={screenWidth < 579 ? 'Share' : 'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
       </div>
       <ContentContainer content={mainContent} />
       <div className={styles.subContainer}>

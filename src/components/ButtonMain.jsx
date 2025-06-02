@@ -1,7 +1,7 @@
 import styles from '../styles/ButtonMain.module.css';
 import { useState } from 'react';
 
-function ButtonMain({ isAlt, onClick, buttonText, iconSrc, iconAlt, isOuter, isDisabled, id }) {
+function ButtonMain({ tabIndex, isAlt, onClick, buttonText, iconSrc, iconAlt, isOuter, isDisabled, id }) {
   const [isAnimating, setIsAnimating] = useState(false);
 
   function onClickDelay() {
@@ -13,11 +13,21 @@ function ButtonMain({ isAlt, onClick, buttonText, iconSrc, iconAlt, isOuter, isD
     }, 300)
   }
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      onClickDelay();
+    }
+  };
+
   return (
     <div
+      role='button'
+      tabIndex={tabIndex}
       id={id}
       className={`${styles.button} ${isAnimating && !isDisabled ? styles.animate : ''} ${isOuter ? styles.outer : ''} ${isDisabled ? styles.disabled : ''}`}
       onClick={onClickDelay}
+      onKeyDown={handleKeyDown}
     >
       {iconSrc && isAlt ? (
         <img className={styles.buttonIcon} src={iconSrc} alt={iconAlt} />

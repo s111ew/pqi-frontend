@@ -1,7 +1,7 @@
 import styles from '../styles/ButtonAlt.module.css'
 import { useState } from 'react'
 
-function ButtonAlt({ isReverse, onClick, buttonText, iconSrc, iconAlt, id }) {
+function ButtonAlt({ tabIndex, isReverse, onClick, buttonText, iconSrc, iconAlt, id }) {
   const [isAnimating, setIsAnimating] = useState(false);
 
   function onClickDelay() {
@@ -12,9 +12,16 @@ function ButtonAlt({ isReverse, onClick, buttonText, iconSrc, iconAlt, id }) {
       setIsAnimating(false)
     }, 300)
   }
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      onClickDelay();
+    }
+  };
   
   return(
-    <div id={id} className={`${styles.button} ${isAnimating ? styles.animate : ''}`} onClick={onClickDelay}>
+    <div role='button' onKeyDown={handleKeyDown} tabIndex={tabIndex} id={id} className={`${styles.button} ${isAnimating ? styles.animate : ''}`} onClick={onClickDelay}>
       {iconSrc && isReverse ? <img className={styles.buttonIcon} src={iconSrc} alt={iconAlt} /> : null}
       <p className={styles.buttonText}>{buttonText}</p>
       {iconSrc && !isReverse ? <img className={styles.buttonIcon} src={iconSrc} alt={iconAlt} /> : null }
