@@ -25,7 +25,7 @@ function ButtonMain({ tabIndex, isAlt, onClick, buttonText, iconSrc, iconAlt, is
       role='button'
       tabIndex={tabIndex}
       id={id}
-      className={`${styles.button} ${isAnimating && !isDisabled ? styles.animate : ''} ${isOuter ? styles.outer : ''} ${isDisabled ? styles.disabled : ''}`}
+      className={`${iconSrc ? styles.hasIcon : ''} ${styles.button} ${isAnimating && !isDisabled ? styles.animate : ''} ${isOuter ? styles.outer : ''} ${isDisabled ? styles.disabled : ''}`}
       onClick={onClickDelay}
       onKeyDown={handleKeyDown}
     >

@@ -6,8 +6,8 @@ import ButtonMain from "../components/ButtonMain";
 import TextInput from "../components/TextInput";
 import butterflyIcon from "../assets/backgroundIcons/Butterfly nudge.svg";
 import lightbulbIcon from "../assets/backgroundIcons/Tiplarge.svg";
-import shareIcon from "../assets/icons/Share.svg"
-import arrowIcon from "../assets/icons/arrowLeft.svg"
+import shareIcon from "../assets/icons/buttonIcons/ShareButton.svg"
+import arrowIcon from "../assets/icons/buttonIcons/BackButton.svg"
 import ButtonAlt from "../components/ButtonAlt";
 import infoIcon from "../assets/icons/Info.svg"
 import infoErrorIcon from "../assets/icons/InfoError.svg"

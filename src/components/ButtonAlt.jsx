@@ -21,7 +21,7 @@ function ButtonAlt({ tabIndex, isReverse, onClick, buttonText, iconSrc, iconAlt,
   };
   
   return(
-    <div role='button' onKeyDown={handleKeyDown} tabIndex={tabIndex} id={id} className={`${styles.button} ${isAnimating ? styles.animate : ''}`} onClick={onClickDelay}>
+    <div role='button' onKeyDown={handleKeyDown} tabIndex={tabIndex} id={id} className={`${iconSrc ? styles.hasIcon : ''} ${styles.button} ${isAnimating ? styles.animate : ''}`} onClick={onClickDelay}>
       {iconSrc && isReverse ? <img className={styles.buttonIcon} src={iconSrc} alt={iconAlt} /> : null}
       <p className={styles.buttonText}>{buttonText}</p>
       {iconSrc && !isReverse ? <img className={styles.buttonIcon} src={iconSrc} alt={iconAlt} /> : null }

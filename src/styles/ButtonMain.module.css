@@ -4,9 +4,13 @@
   border-radius: 50px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   display: flex;
-  gap: 16px;
+  gap: 12px;
   background-color: var(--orange-1);
   align-items: center;
+}
+
+.hasIcon {
+  padding: 7px 28px !important;
 }
 
 .outer {
@@ -95,8 +99,8 @@
 }
 
 .buttonIcon {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
 }
 
 .disabled,

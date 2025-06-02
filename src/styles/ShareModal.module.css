@@ -16,6 +16,13 @@
   height: 100%;
 }
 
+.clickableArea {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
 .shareModal {
   padding-top: 16px;
   position: sticky;

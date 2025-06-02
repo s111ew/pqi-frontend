@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from "react";
 import tipIcon from "../assets/icons/Info.svg"
 import qrCode from "../assets/qrCode2.png"
 import close from "../assets/icons/X.svg"
+import ButtonMain from "../components/ButtonMain"
+import Logo from "../assets/icons/buttonIcons/LogoButton.svg"
 
 function ShareModal({ setShareModalVisible }) {
   const [copied, setCopied] = useState(false);
@@ -76,8 +78,9 @@ function ShareModal({ setShareModalVisible }) {
       <div className={styles.stickyContainer}>
         <div className={styles.shareModal}>
           <div className={styles.closeButton}><img src={close} alt="close" /></div>
-          <div ref={containerRef}>
+          <div className={styles.clickableArea} ref={containerRef}>
             <ContentContainerSmall content={content} />
+            <ButtonMain iconSrc={Logo} buttonText={"The School of Play"} isAlt={true} onClick={() => {window.open("https://theschoolofplay.org/", '_blank')}} />
           </div>
         </div>
       </div>

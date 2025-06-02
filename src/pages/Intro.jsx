@@ -3,8 +3,8 @@ import ButtonMain from "../components/ButtonMain"
 import ContentContainer from "../components/ContentContainer"
 import SubContent from "../components/SubContent"
 import styles from "../styles/Intro.module.css"
-import shareIcon from "../assets/icons/Share.svg"
-import TsopLogo from "../assets/icons/TSOPlogo.svg"
+import shareIcon from "../assets/icons/buttonIcons/ShareButton.svg"
+import TsopLogo from "../assets/icons/buttonIcons/LogoButton.svg"
 import { useEffect, useState } from "react"
 
 function Intro({ setCurrentPage, setShareModalVisible }) {

@@ -1,15 +1,19 @@
 .button {
   color: var(--black-1);
   background-color: var(--white-2);
-  padding: 0px 28px;
+  padding: 16px 28px;
   border: 3px solid var(--white-1);
   border-radius: 50px;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   box-shadow: var(--box-shadow-button);
   flex-shrink: 0;
   height: 100%;
+}
+
+.hasIcon {
+  padding: 7px 28px !important;
 }
 
 .button:hover {
@@ -86,12 +90,13 @@
 .buttonText {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
+  line-height: 14px;
   margin: 0px;
 }
 
 .buttonIcon {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
 }
 
 .disabled {

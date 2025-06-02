@@ -5,8 +5,8 @@ import Radios from "../components/Radios";
 import styles from "../styles/Question.module.css"
 import questions from "../tools/questions.js"
 import { useState, useEffect } from "react";
-import shareIcon from "../assets/icons/Share.svg"
-import arrowIcon from "../assets/icons/arrowLeft.svg"
+import shareIcon from "../assets/icons/buttonIcons/ShareButton.svg"
+import arrowIcon from "../assets/icons/buttonIcons/BackButton.svg"
 
 function Question({ setShareModalVisible, setCurrentPage, user, setUser }) {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
