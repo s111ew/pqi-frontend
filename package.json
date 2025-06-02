@@ -8,12 +8,14 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-     "deploy": "vite build && gh-pages -d dist --cname quiz.theschoolofplay.org"
+    "deploy": "vite build && gh-pages -d dist --cname quiz.theschoolofplay.org"
   },
   "dependencies": {
     "classnames": "^2.5.1",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-confetti": "^6.4.0",
+    "react-dom": "^19.1.0",
+    "react-use": "^17.6.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",

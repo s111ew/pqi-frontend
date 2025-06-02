@@ -4,6 +4,7 @@ import ContentContainerSmall from "../components/ContentContainerSmall"
 import ContactInput from "../components/ContactInput"
 import ResultGraphic from "../components/ResultGraphic.jsx"
 import SubContent from "../components/SubContent"
+import ConfettiSpray from "../components/ConfettiSpray.jsx"
 import styles from "../styles/Result.module.css"
 import shareIcon from "../assets/icons/Share.svg"
 import tipIcon from "../assets/icons/Tip.svg"
@@ -15,6 +16,7 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
   const [lowest, setLowest] = useState();
   const [highest, setHighest] = useState();
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [hasConfetti, setHasConfetti] = useState(true);
 
   const calculatePercentage = (answers) => {
     let total = 0;
@@ -264,22 +266,25 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
   )
 
   return(
-    <main className={styles.result}>
-      <div className={styles.buttonContainer}>
-        <ButtonMain tabIndex={1} isAlt={true} onClick={resetQuiz} buttonText={'Retake quiz'} iconSrc={tipIcon} iconAlt={'save your results'} isOuter={true}/>
-        <ButtonAlt tabIndex={2} id={"share"} onClick={handleClick} buttonText={screenWidth < 579 ? 'Share' : 'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
-      </div>
-      <div className={styles.content}>
-        <SubContent content={result}/>
-        <ContentContainerSmall content={content3}/>
-        <SubContent content={content5}/>
-        <SubContent content={content4}/>
-        <div className={styles.subContainer}>
-          <SubContent content={content1}/>
-          <SubContent content={content2}/>
+    <>
+      {hasConfetti && <ConfettiSpray setHasConfetti={setHasConfetti} />}
+      <main className={styles.result}>
+        <div className={styles.buttonContainer}>
+          <ButtonMain tabIndex={1} isAlt={true} onClick={resetQuiz} buttonText={'Retake quiz'} iconSrc={tipIcon} iconAlt={'save your results'} isOuter={true}/>
+          <ButtonAlt tabIndex={2} id={"share"} onClick={handleClick} buttonText={screenWidth < 579 ? 'Share' : 'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
         </div>
-      </div>
-    </main>
+        <div className={styles.content}>
+          <SubContent content={result}/>
+          <ContentContainerSmall content={content3}/>
+          <SubContent content={content5}/>
+          <SubContent content={content4}/>
+          <div className={styles.subContainer}>
+            <SubContent content={content1}/>
+            <SubContent content={content2}/>
+          </div>
+        </div>
+      </main>
+    </>
   )
 }
 
