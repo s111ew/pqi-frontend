@@ -2,6 +2,7 @@ import ButtonAlt from "../components/ButtonAlt"
 import ButtonMain from "../components/ButtonMain"
 import ContentContainerSmall from "../components/ContentContainerSmall"
 import ContactInput from "../components/ContactInput"
+import ResultGraphic from "../components/ResultGraphic.jsx"
 import SubContent from "../components/SubContent"
 import styles from "../styles/Result.module.css"
 import shareIcon from "../assets/icons/Share.svg"
@@ -13,15 +14,9 @@ import { useEffect, useState } from "react"
 function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
   const [lowest, setLowest] = useState();
   const [highest, setHighest] = useState();
-  const [socialIsOpen, setSocialIsOpen] = useState(false);
-  const [emotionalIsOpen, setEmotionalIsOpen] = useState(false);
-  const [physicalIsOpen, setPhysicalIsOpen] = useState(false);
-  const [playfulIsOpen, setPlayfulIsOpen] = useState(false);
-  const [cognitiveIsOpen, setCognitiveIsOpen] = useState(false);
-  const [systemicIsOpen, setSystemicIsOpen] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
-    const calculatePercentage = (answers) => {
+  const calculatePercentage = (answers) => {
     let total = 0;
     answers.forEach(answer => {
       total += answer.answer
@@ -152,12 +147,12 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
   const baseSizeVW = 10; // equivalent of 98px
   const scaleVW = 0.8; // each score point adds this much VW
 
-  const socialWidth = `clamp(90px, ${baseSizeVW + (scores.social * scaleVW)}vw, 200px)`;
-  const emotionalWidth = `clamp(90px, ${baseSizeVW + (scores.emotional * scaleVW)}vw, 200px)`;
-  const physicalWidth = `clamp(90px, ${baseSizeVW + (scores.physical * scaleVW)}vw, 200px)`;
-  const systemicWidth = `clamp(90px, ${baseSizeVW + (scores.systemic * scaleVW)}vw, 200px)`;
-  const cognitiveWidth = `clamp(90px, ${baseSizeVW + (scores.cognitive * scaleVW)}vw, 200px)`;
-  const playfulWidth = `clamp(90px, ${baseSizeVW + (scores.playful * scaleVW * 0.6)}vw, 200px)`;
+  const socialWidth = `${baseSizeVW + (scores.social * scaleVW)}vw`;
+  const emotionalWidth = `${baseSizeVW + (scores.emotional * scaleVW)}vw`;
+  const physicalWidth = `${baseSizeVW + (scores.physical * scaleVW)}vw`;
+  const systemicWidth = `${baseSizeVW + (scores.systemic * scaleVW)}vw`;
+  const cognitiveWidth = `${baseSizeVW + (scores.cognitive * scaleVW)}vw`;
+  const playfulWidth = `${baseSizeVW + (scores.playful * scaleVW * 0.6)}vw`;
 
   const result = (
       <div className={`${styles.subContent} ${styles.large}`}>
@@ -170,27 +165,18 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
             </div>
             {calculateHeaderText()}
           </div>
-          <div className={styles.resultGraphic}>
-            <p className={styles.resultPre}>Tap each category to reveal your results:</p>
-            <div className={styles.bubbleContainer}>
-              <div className={styles.bubbleRow}>
-                <div onClick={() => {physicalIsOpen ? setPhysicalIsOpen(false) : setPhysicalIsOpen(true)}} className={`${styles.bubble} ${styles.physical} ${physicalIsOpen ? styles.physicalOpen : ''}`} style={{width: physicalWidth, height: physicalWidth}}><span className={styles.bubbleText}>{physicalIsOpen ? (`${scores.physical} / 15`) : (<>Physical<br></br>Development</>)}</span></div>
-                <div onClick={() => {cognitiveIsOpen ? setCognitiveIsOpen(false) : setCognitiveIsOpen(true)}} className={`${styles.bubble} ${styles.cognitive} ${cognitiveIsOpen ? styles.cognitiveOpen : ''}`} style={{width: cognitiveWidth, height: cognitiveWidth}}><span className={styles.bubbleText}>{cognitiveIsOpen ? (`${scores.cognitive} / 15`) : (<>Cognitive<br></br>Development</>)}</span></div>
-              </div>
-              {screenWidth < 579 ?
-              ( <div className={styles.bubbleRow}>
-                  <div onClick={() => {socialIsOpen ? setSocialIsOpen(false) : setSocialIsOpen(true)}} className={`${styles.bubble} ${styles.social} ${socialIsOpen ? styles.socialOpen : ''}`} style={{width: socialWidth, height: socialWidth}}><span className={styles.bubbleText}>{socialIsOpen ? (`${scores.social} / 15`) : (<>Social<br></br>Development</>)}</span></div>
-                </div> ) : ''}
-              <div className={styles.bubbleRow}>
-                { screenWidth > 579 ? ( <div onClick={() => {socialIsOpen ? setSocialIsOpen(false) : setSocialIsOpen(true)}} className={`${styles.bubble} ${styles.social} ${socialIsOpen ? styles.socialOpen : ''}`} style={{width: socialWidth, height: socialWidth}}><span className={styles.bubbleText}>{socialIsOpen ? (`${scores.social} / 15`) : (<>Social<br></br>Development</>)}</span></div> ) : ''}
-                <div onClick={() => {emotionalIsOpen ? setEmotionalIsOpen(false) : setEmotionalIsOpen(true)}} className={`${styles.bubble} ${styles.emotional} ${emotionalIsOpen ? styles.emotionalOpen : ''}`} style={{width: emotionalWidth, height: emotionalWidth}}><span className={styles.bubbleText}>{emotionalIsOpen ? (`${scores.emotional} / 15`) : (<>Emotional<br></br>Development</>)}</span></div>
-                <div onClick={() => {systemicIsOpen ? setSystemicIsOpen(false) : setSystemicIsOpen(true)}} className={`${styles.bubble} ${styles.systemic} ${systemicIsOpen ? styles.systemicOpen : ''}`} style={{width: systemicWidth, height: systemicWidth}}><span className={styles.bubbleText}>{systemicIsOpen ? (`${scores.systemic} / 15`) : (<>Systemic<br></br>Development</>)}</span></div>
-              </div>
-              <div className={styles.bubbleRow}>
-                <div onClick={() => {playfulIsOpen ? setPlayfulIsOpen(false) : setPlayfulIsOpen(true)}} className={`${styles.bubble} ${styles.playful} ${playfulIsOpen ? styles.playfulOpen : ''}`} style={{width: playfulWidth, height: playfulWidth}}><span className={styles.bubbleText}>{playfulIsOpen ? (`${scores.playful} / 25`) : (<>Playful<br></br>Behaviours</>)}</span></div>
-              </div>
-            </div>
-          </div>
+          <ResultGraphic
+            scores={scores}
+            screenWidth={screenWidth}
+            bubbleSizes={{
+              physical: physicalWidth,
+              cognitive: cognitiveWidth,
+              social: socialWidth,
+              emotional: emotionalWidth,
+              systemic: systemicWidth,
+              playful: playfulWidth,
+            }}
+          />
       </div>
     <div className={styles.highestLowest}>
       { !isMax && !isMin ? (
@@ -280,7 +266,7 @@ function Result({ setCurrentPage, setShareModalVisible, user, setUser }) {
   return(
     <main className={styles.result}>
       <div className={styles.buttonContainer}>
-        <ButtonMain onClick={resetQuiz} buttonText={'Retake quiz'} iconSrc={tipIcon} iconAlt={'save your results'} isOuter={true}/>
+        <ButtonMain isAlt={true} onClick={resetQuiz} buttonText={'Retake quiz'} iconSrc={tipIcon} iconAlt={'save your results'} isOuter={true}/>
         <ButtonAlt id={"share"} onClick={handleClick} buttonText={screenWidth < 579 ? 'Share' : 'Share quiz'} iconSrc={shareIcon} iconAlt={'share quiz'}/>
       </div>
       <div className={styles.content}>
