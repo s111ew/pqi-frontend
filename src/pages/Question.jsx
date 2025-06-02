@@ -60,36 +60,42 @@ function Question({ setShareModalVisible, setCurrentPage, user, setUser }) {
   
 
   const handlePrevious = () => {
-    if (currentIndex > 0) {
+  if (currentIndex > 0) {
+    setIsAnimating(true);
+
+    setTimeout(() => {
       const newIndex = currentIndex - 1;
       setCurrentIndex(newIndex);
-  
+
       setUser((prev) => {
         const prevAnswers = prev.answers || [];
         const updatedAnswers = prevAnswers.slice(0, newIndex);
-  
+
         if (updatedAnswers.length === 0) {
           // eslint-disable-next-line no-unused-vars
           const { answers, ...rest } = prev;
           return rest;
         }
-  
+
         return {
           ...prev,
           answers: updatedAnswers,
         };
       });
-    }
-    if (currentIndex === 0) {
+
+      setIsAnimating(false);
+    }, 500);
+    } else if (currentIndex === 0) {
       setUser('');
       setCurrentPage("start");
     }
   };
+
   
 
   const mainContent = (
     <>
-      <p className={`${styles.disclaimer} ${currentIndex !== 0 ? styles.whiteText : ''}`}>For each statement, choose the answer that best reflects how you are in reality, not as you should or would like to be.</p>
+      <p className={`${styles.disclaimer} ${currentIndex !== 0 ? styles.whiteText : ''} ${isAnimating ? styles.fade : ''}`}>For each statement, choose the answer that best reflects how you are in reality, not as you should or would like to be.</p>
       <div className={styles.questionTextContainer}>
       <p>{`${currentIndex + 1} of ${questions.length}`}</p>
         <h2 className={`${styles.questionText} ${isAnimating ? styles.fade : ''}`}>{questions[currentIndex].question}</h2>
