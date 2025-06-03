@@ -85,6 +85,7 @@ function ContactInput({ tabIndex, user, setUser, textPlaceholder, buttonText }) 
               placeholder={textPlaceholder}
               value={email}
               onChange={handleChange}
+              autoComplete="email"
             />
             <div tabIndex={tabIndex + 1} id={!emailError ? "save-results" : ''} className={`${styles.inputButton} ${sent ? styles.sent : ''}`} onClick={handleClick} onKeyDown={(event) => {
               if (event.key === 'Enter') {

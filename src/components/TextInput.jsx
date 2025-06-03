@@ -8,6 +8,7 @@ function TextInput({ tabIndex, placeholderText, value, onChange }) {
       placeholder={placeholderText}
       value={value}
       onChange={onChange}
+      autoComplete='name'
     />
   );
 }
