@@ -18,11 +18,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 64px;
+  gap: 50px;
   width: 100%;
 }
 
-.mainText > h1 {
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.title > h1 {
   color: var(--teal-1);
   font-size: 32px;
   line-height: 45px;
@@ -37,6 +45,10 @@
   line-height: 20px;
   text-align: center;
   font-weight: 500;
+}
+
+.subtitle {
+  font-family: "Helvetica Neue";
 }
 
 .subContainer {

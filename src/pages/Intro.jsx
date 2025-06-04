@@ -32,7 +32,10 @@ function Intro({ setCurrentPage, setShareModalVisible }) {
   const mainContent = (
     <>
       <div className={styles.mainText}>
-        <h1>Play Genius Quiz</h1>
+        <div className={styles.title}>
+          <h1>Play Genius Quiz</h1>
+          <p className={styles.subtitle}>by The School of Play</p>
+        </div>
         <p>Explore your relationship with true play in just 5 minutes. Opt-in for tips to reconnect with your greatest superpower.</p>
       </div>
       <ButtonMain tabIndex={3} buttonText={'Let the games begin!'} onClick={onClick}/>
